@@ -1,0 +1,183 @@
+/* body {
+    background-color: gray;
+} */@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+:root {
+    --black: #1c1c1c;
+    --gray: #7E7E7E;
+    --gray-light: #E4E4E4;
+    --red: #b30000;
+    --font-size-base: 1rem;
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --border-radius: 10px;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--black);
+    font-size: var(--font-size-base);
+    background-color: #FAF5EE;
+    background-image: url("/img/img-noise-361x370.png");
+    margin: 0;
+  }
+  
+  a { color: var(--black); }
+  h1 { font-size: var(--font-size-xl); }
+  h2 { font-size: var(--font-size-lg); }
+  h3 { font-size: var(--font-size-md); }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  select,
+  textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    display: block;
+    box-sizing: border-box;
+    width: 75%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    background-color: var(--black);
+    border: none;
+    color: white; 
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px; 
+    cursor: pointer;
+  }
+  
+  .btn-delete {
+    padding: 10px 16px;
+    background-color: var(--red);
+  }
+  
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Layout */
+  .container {
+    max-width: 982px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .main {
+    padding: 20px 0;
+  }
+
+
+  .image_container{
+    display: flex;
+    gap: 5px;
+  }
+  
+  /* Main Header */
+  .header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "logo button"
+    "menu menu";
+    padding-top: 20px;
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center; /* Ensure items are vertically centered */
+    grid-area: logo;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .header {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 
+      "logo menu button";
+    }
+  }
+  
+  .header__logo {
+    font-weight: 800;
+    font-size: 25px;
+    text-decoration: none;
+    grid-area: logo;
+    align-self: center;
+    margin: 0;
+  }
+  
+  .header__logo:hover {
+    text-decoration: underline;
+  }
+  
+  .header__nav {
+    justify-content: center;
+    display: flex;
+    grid-area: menu;
+  }
+  
+  .header__logo, .header__nav, .header__button {
+    width: auto;
+    margin: 0;
+  }
+  
+  .header__button {
+    display: flex;
+    justify-content: end;
+    grid-area: button;
+  }
+  
+  .header__button button {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+    border: 0;
+    padding: 6px 12px;
+    background: none;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black);
+  }
+  
+  .header__button button:hover {
+    border: 2px solid var(--black);
+  }
+  
+  /* Header -> Navigation */
+  .header__nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 0;
+  }
+  
+  .header__nav ul a {
+    padding: 10px;
+    text-decoration: none;
+  }
+  
+  .game {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.team {
+    display: inline-block;
+    margin-right: 10px;
+}
+.vs {
+    margin: 0 10px;
+}

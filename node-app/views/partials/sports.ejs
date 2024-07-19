@@ -1,0 +1,24 @@
+<body>
+
+    <div class="container">
+        <h1><%= data.response[0].league.name %></h1>
+        <div class="games">
+            <% data.response.forEach(fixture => { %>
+                <div class="game">
+                    <h2><%= fixture.teams.home.name %> vs <%= fixture.teams.away.name %></h2>
+                    <p>Date: <%= new Date(fixture.fixture.date).toLocaleString() %></p>
+                    <p>Venue: <%= fixture.fixture.venue.name %>, <%= fixture.fixture.venue.city %></p>
+                    <p>Referee: <%= fixture.fixture.referee %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+</body>
+
+<!-- data.league.name -->
+
+<script>
+    const data = <%- JSON.stringify(data) %>;
+    console.log('Sports Data', data);
+</script>
