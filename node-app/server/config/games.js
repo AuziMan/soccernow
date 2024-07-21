@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const PYTHON_API = 'http://127.0.0.1:5000';
+const PYTHON_API = 'http://127.0.0.1:5000/ingest';
 
 const getEuroGames = async () => {
     try {

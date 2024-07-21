@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getUpcomingMLSGames, getPrevMLSGames, getAllLiveGames, getLiveMLSGames } = require('../config/sports'); // Adjust the path
+const { getUpcomingMLSGames, getPrevMLSGames, getAllLiveGames, getLiveMLSGames } = require('../config/games'); // Adjust the path
 
 router.get('/', async (req, res) => {
     try {

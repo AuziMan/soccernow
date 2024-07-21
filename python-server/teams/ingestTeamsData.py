@@ -3,6 +3,8 @@ import json
 from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
+
+
 load_dotenv()
 
 
@@ -43,25 +45,19 @@ def get_mls_teams():
             team_id = team_info.get('id')
             team_name = team_info.get('name')
 
-            # Team Info print
-            # print("Team Info")
-            # print(json.dumps(team_info, indent=4))
-
             if team_id and team_name:
                 teams.append({
                     'id': team_id,
                     'name': team_name
                 })
 
-
         print("Extracted Team data:")
-        #print(teams)
-
         return json.dumps(teams, indent=4)
     else:
         print(f"Failed to fetch data. Status code: {response.status_code}")
         return None
     
+
 def get_mls_team_squads(team_id):
     # Shared api keys
     apiKeys = {

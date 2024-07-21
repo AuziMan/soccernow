@@ -13,11 +13,14 @@ app.use(expressLayout);
 app.set('view engine', 'ejs');
 app.set('layout', './layouts/main');
 
-const sportsRouter = require('./server/routes/sports');
-const mainRote = require('./server/routes/main');
+const sportsRouter = require('./server/routes/games');
+const mainRoute = require('./server/routes/main');
+const teamRoute = require('./server/routes/teams');
+
 
 app.use('/', sportsRouter); // Mount the sports router at root path
-app.use('/', mainRote);
+app.use('/', mainRoute);
+app.use('/', teamRoute);
 
 
 

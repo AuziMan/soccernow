@@ -9,7 +9,7 @@ const PYTHON_API = 'http://127.0.0.1:5000';
 // Route to get data from the Python API
 router.get('/euro-games', async (req, res) => {
     try {
-      const response = await fetch(`${PYTHON_API}/euro-games`);
+      const response = await fetch(`${PYTHON_API}/ingest/euro-games`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -28,7 +28,7 @@ router.get('/euro-games', async (req, res) => {
 
 router.get('/mls-games', async (req, res) => {
   try {
-    const response = await fetch(`${PYTHON_API}/live-mls-games`);
+    const response = await fetch(`${PYTHON_API}/ingest/live-mls-games`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -46,7 +46,7 @@ router.get('/mls-games', async (req, res) => {
 
   router.get('/live-games', async (req, res) => {
     try {
-      const response = await fetch(`${PYTHON_API}/all-live-games`);
+      const response = await fetch(`${PYTHON_API}/ingest/all-live-games`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

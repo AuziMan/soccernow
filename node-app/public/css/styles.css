@@ -181,3 +181,42 @@
 .vs {
     margin: 0 10px;
 }
+
+
+/* Teams CSS */
+
+.teams-container {
+  margin: 20px;
+}
+.team {
+  margin-bottom: 40px;
+}
+.team-logo {
+  width: 150px;
+  height: auto;
+}
+.team-squad {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.players {
+  flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gaps */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+}
+.players h2 {
+  margin: 5px 0;
+}
+@media (max-width: 768px) {
+  .players {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
+  }
+}
+@media (max-width: 480px) {
+  .players {
+    flex: 1 1 100%; /* 1 card per row on very small screens */
+  }
+}
