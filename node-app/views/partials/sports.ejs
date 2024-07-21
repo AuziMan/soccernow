@@ -1,9 +1,9 @@
 <body>
 
     <div class="container">
-        <h1><%= data.response[0].league.name %></h1>
+        <h3>Upcoming <%= upcoming.response[0].league.name %> Games</h3>
         <div class="games">
-            <% data.response.forEach(fixture => { %>
+            <% upcoming.response.forEach(fixture => { %>
                 <div class="game">
                     <h2><%= fixture.teams.home.name %> vs <%= fixture.teams.away.name %></h2>
                     <p>Date: <%= new Date(fixture.fixture.date).toLocaleString() %></p>
@@ -14,11 +14,27 @@
         </div>
     </div>
 
+    <div class="container">
+        <h3>Past <%= prev.parameters.last %> <%= prev.response[0].league.name %> Games</h3>
+        <div class="games">
+            <% prev.response.forEach(fixture => { %>
+                <div class="game">
+                    <h2><%= fixture.teams.home.name %> vs <%= fixture.teams.away.name %></h2>
+                    <p>Date: <%= new Date(fixture.fixture.date).toLocaleString() %></p>
+                    <p>Venue: <%= fixture.fixture.venue.name %>, <%= fixture.fixture.venue.city %></p>
+                    <p>Referee: <%= fixture.fixture.referee %></p>
+                    <p><%= fixture.teams.home.name %>: <%= fixture.score.fulltime.home %></p>
+                    <p><%= fixture.teams.away.name %>: <%= fixture.score.fulltime.away %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
 </body>
 
 <!-- data.league.name -->
 
 <script>
-    const data = <%- JSON.stringify(data) %>;
-    console.log('Sports Data', data);
+    const upcoming = <%- JSON.stringify(upcoming) %>;
+    console.log('Upcoming MLS Games', upcoming);
 </script>

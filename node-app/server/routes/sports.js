@@ -28,7 +28,7 @@ router.get('/euro-games', async (req, res) => {
 
 router.get('/mls-games', async (req, res) => {
   try {
-    const response = await fetch(`${PYTHON_API}/mls-games`);
+    const response = await fetch(`${PYTHON_API}/live-mls-games`);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -43,5 +43,23 @@ router.get('/mls-games', async (req, res) => {
       res.status(500).send('Error fetching data from Python API');
     }
   });
+
+  router.get('/live-games', async (req, res) => {
+    try {
+      const response = await fetch(`${PYTHON_API}/all-live-games`);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const live = await response.json();
+      if(live.result === 0){
+        res.render('./partials/no-games');
+      }else{
+        res.render('live-games', { live });
+      }
+    } catch (error) {
+        console.error('Error fetching data from Python API:', error);
+        res.status(500).send('Error fetching data from Python API');
+      }
+    });
 
 module.exports = router;

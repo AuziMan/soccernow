@@ -1,0 +1,21 @@
+<body>
+    <div class="container">
+        <h3>All Live Games</h3>
+        <% if (live.result === 0) { %>
+         <h1>No Live Games On Right Now</h1>
+        <% } else { %>
+          <div class="games">
+            <% live.response.forEach(fixture => { %>
+                <div class="game">
+                    <h2><%= fixture.teams.home.name %> vs <%= fixture.teams.away.name %></h2>
+                    <p>Date: <%= new Date(fixture.fixture.date).toLocaleString() %></p>
+                    <p>Venue: <%= fixture.fixture.venue.name %>, <%= fixture.fixture.venue.city %></p>
+                    <p>Referee: <%= fixture.fixture.referee %></p>
+                    <p><%= fixture.teams.home.name %>: <%= fixture.goals.home %></p>
+                    <p><%= fixture.teams.away.name %>: <%= fixture.goals.away %></p>
+                </div>
+            <% }); %>
+        </div>  
+       <% } %> 
+    </div>
+</body>
