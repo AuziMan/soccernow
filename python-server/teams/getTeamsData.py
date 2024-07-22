@@ -41,8 +41,8 @@ def get_team_by_id(team_id):
         return jsonify({
             'team_id': team.get('team_id'),
             'team_name': team.get('team_name'),
-            'logo': team.get('team_logo'),
-            'squad': team.get('squad')
+            'team_logo': team.get('team_logo'),
+            'team_squad': team.get('squad')
         })
     else:
         return jsonify({'error': 'Team not found'}), 404

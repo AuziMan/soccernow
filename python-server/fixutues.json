@@ -1,0 +1,137 @@
+"response": [
+        {
+            "fixture": {
+                "id": 1151118,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2024-08-24T00:00:00+00:00",
+                "timestamp": 1724457600,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 1617,
+                    "name": "Allianz Field",
+                    "city": "Saint Paul, Minnesota"
+                },
+                "status": {
+                    "long": "Time to be defined",
+                    "short": "TBD",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 253,
+                "name": "Major League Soccer",
+                "country": "USA",
+                "logo": "https://media.api-sports.io/football/leagues/253.png",
+                "flag": "https://media.api-sports.io/flags/us.svg",
+                "season": 2024,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 1612,
+                    "name": "Minnesota United FC",
+                    "logo": "https://media.api-sports.io/football/teams/1612.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 1595,
+                    "name": "Seattle Sounders",
+                    "logo": "https://media.api-sports.io/football/teams/1595.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },
+        {
+            "fixture": {
+                "id": 1151119,
+                "referee": null,
+                "timezone": "UTC",
+                "date": "2024-08-24T23:30:00+00:00",
+                "timestamp": 1724542200,
+                "periods": {
+                    "first": null,
+                    "second": null
+                },
+                "venue": {
+                    "id": 19445,
+                    "name": "BC Place",
+                    "city": "Vancouver, British Columbia"
+                },
+                "status": {
+                    "long": "Not Started",
+                    "short": "NS",
+                    "elapsed": null
+                }
+            },
+            "league": {
+                "id": 253,
+                "name": "Major League Soccer",
+                "country": "USA",
+                "logo": "https://media.api-sports.io/football/leagues/253.png",
+                "flag": "https://media.api-sports.io/flags/us.svg",
+                "season": 2024,
+                "round": "Regular Season - 36"
+            },
+            "teams": {
+                "home": {
+                    "id": 1603,
+                    "name": "Vancouver Whitecaps",
+                    "logo": "https://media.api-sports.io/football/teams/1603.png",
+                    "winner": null
+                },
+                "away": {
+                    "id": 1616,
+                    "name": "Los Angeles FC",
+                    "logo": "https://media.api-sports.io/football/teams/1616.png",
+                    "winner": null
+                }
+            },
+            "goals": {
+                "home": null,
+                "away": null
+            },
+            "score": {
+                "halftime": {
+                    "home": null,
+                    "away": null
+                },
+                "fulltime": {
+                    "home": null,
+                    "away": null
+                },
+                "extratime": {
+                    "home": null,
+                    "away": null
+                },
+                "penalty": {
+                    "home": null,
+                    "away": null
+                }
+            }
+        },

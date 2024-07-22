@@ -5,10 +5,10 @@ const { getAllTeams, getTeamById } = require('../config/teams'); // Adjust the p
 
 router.get('/teams', async (req, res) => {
     try {
-      const team = await getAllTeams();
-        console.log(team)
+      const teams = await getAllTeams();
+        console.log(teams)
       res.render('./partials/teams', {
-        team
+        teams
       });
     } catch (error) {
         console.error('Error fetching data from Python API:', error);

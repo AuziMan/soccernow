@@ -6,10 +6,10 @@
         <% teamsArray.forEach(team => { %>
             <div class="team">
                 <h1><%= team.team_name %></h1>
-                <img src="<%= team.logo %>" alt="<%= team.team_name %> Logo" class="team-logo">
+                <img src="<%= team.team_logo %>" alt="<%= team.team_name %> Logo" class="team-logo">
                 <div class="team-squad">
-                    <% if (team.squad && Array.isArray(team.squad)) { %>
-                        <% team.squad.forEach(player => { %>
+                    <% if (team.team_squad) { %>
+                        <% team.team_squad.forEach(player => { %>
                             <div class="players">
                                 <h3>Name: <%= player.name %></h3>
                                 <h3>Jersey Number: <%= player.number %></h3>
