@@ -1,6 +1,9 @@
 <body>
 
     <div class="container">
+        <% if (upcoming.result === 0) { %>
+         <h1>None available</h1>
+        <% } else { %>
         <h3>Upcoming <%= upcoming.response[0].league.name %> Games</h3>
         <div class="games">
             <% upcoming.response.forEach(fixture => { %>
@@ -12,9 +15,13 @@
                 </div>
             <% }); %>
         </div>
+        <% } %>
     </div>
 
     <div class="container">
+        <% if (prev.result === 0) { %>
+            <h1>None available</h1>
+        <% } else { %>
         <h3>Past <%= prev.parameters.last %> <%= prev.response[0].league.name %> Games</h3>
         <div class="games">
             <% prev.response.forEach(fixture => { %>
@@ -28,6 +35,7 @@
                 </div>
             <% }); %>
         </div>
+        <% } %>
     </div>
 
 </body>

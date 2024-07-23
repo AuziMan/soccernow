@@ -26,32 +26,9 @@ ingest_blueprint = Blueprint('ingest', __name__)
 API_KEY = os.getenv('API-KEY')
 
 # League ID's
-euroLeageId = 4
 copaAmericaId = 10
 mlsLeageId = 253
 
-
-@ingest_blueprint.route('/euro-games')
-def get_euro_games():
-    # Shared api keys
-    
-    apiKeys = {
-    'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': API_KEY
-    }
-
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={euroLeageId}&season=2024&next=3"
-    response = requests.get(endpoint, headers=apiKeys)
-
-    data = response.json()
-    if data['results'] == 0:
-        noResponse = {
-            "result": 0
-        }
-        #print(noResponse)
-        return (noResponse)
-    else:
-        return jsonify(data)
 
 
 
@@ -66,10 +43,16 @@ def get_up_mls_games():
 
     endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2024&next=10"
     response = requests.get(endpoint, headers=apiKeys)
-    print(response)
+    
     data = response.json()
-    #print(data);
-    return jsonify(data)
+    if data['results'] == 0:
+        noResponse = {
+                "result": 0
+        }
+        #print(noResponse)
+        return (noResponse)
+    else:
+        return jsonify(data)
 
 
 @ingest_blueprint.route('/prev-mls-games')
@@ -86,7 +69,14 @@ def get_prev_mls_games():
 
     data = response.json()
     #print(data);
-    return jsonify(data)
+    if data['results'] == 0:
+        noResponse = {
+                "result": 0
+        }
+        #print(noResponse)
+        return (noResponse)
+    else:
+        return jsonify(data)
 
 
 @ingest_blueprint.route('/all-live-games')

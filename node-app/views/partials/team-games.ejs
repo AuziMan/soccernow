@@ -1,0 +1,27 @@
+<h1>team-game partials</h1>
+
+<body>
+    <div class="team-games-container">
+        <% // Ensure dbMLSGames is always an array %>
+        <% const gamesArray = Array.isArray(dbMLSGames) ? dbMLSGames.flat() : [dbMLSGames]; %>
+
+        <% gamesArray.forEach(game => { %>
+            <div class="team">
+                <% if (game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away) { %>
+                    <h2><%= game.fixture_teams.home.name %> vs <%= game.fixture_teams.away.name %></h2>
+                    <img src="<%= game.fixture_teams.home.logo %>" alt="<%= game.fixture_teams.home.name %> Logo" class="team-logo">
+                    <img src="<%= game.fixture_teams.away.logo %>" alt="<%= game.fixture_teams.away.name %> Logo" class="team-logo">
+                    <p>Date: <%= new Date(game.fixture_date).toLocaleString() %></p>
+                <% } else { %>
+                    <p>Some game data is missing.</p>
+                <% } %>
+            </div>
+        <% }); %>
+    </div>
+</body>
+
+
+<script>
+    const mlsGames = <%- JSON.stringify(dbMLSGames) %>;
+    console.log('DB response', mlsGames);
+</script>

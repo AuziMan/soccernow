@@ -220,3 +220,8 @@
     flex: 1 1 100%; /* 1 card per row on very small screens */
   }
 }
+
+
+.team-games-container {
+  border-style: dashed;
+}

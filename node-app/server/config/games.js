@@ -2,11 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 
-const PYTHON_API = 'http://127.0.0.1:5000/ingest';
+const PYTHON_API_INGEST = 'http://127.0.0.1:5000/ingest';
+const PYTHON_API_GAMES = 'http://127.0.0.1:5000/games';
+
+
 
 const getEuroGames = async () => {
     try {
-        const response = await fetch(`${PYTHON_API}/euro-games`);
+        const response = await fetch(`${PYTHON_API_INGEST}/euro-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -21,7 +24,7 @@ const getEuroGames = async () => {
 
 const getUpcomingMLSGames = async () => {
     try {
-        const response = await fetch(`${PYTHON_API}/up-mls-games`);
+        const response = await fetch(`${PYTHON_API_INGEST}/up-mls-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -34,9 +37,30 @@ const getUpcomingMLSGames = async () => {
     }
 }
 
+const dbGetMLSGames = async (teamId) => {
+    try {
+         const checkTeamsPassed = async () => {   
+            const endpoint = teamId ?  `${PYTHON_API_GAMES}/${teamId}` : PYTHON_API_GAMES;
+            const response = await fetch(endpoint);
+
+            if (!response.ok){
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            return response.json();
+        }
+        const data = checkTeamsPassed();
+        //console.log(data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching data from Python API:', error);
+        throw error; // Re-throw the error to handle it in the calling function
+    }
+}
+
 const getPrevMLSGames = async () => {
     try {
-        const response = await fetch(`${PYTHON_API}/prev-mls-games`);
+        const response = await fetch(`${PYTHON_API_INGEST}/prev-mls-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -51,7 +75,7 @@ const getPrevMLSGames = async () => {
 
 const getAllLiveGames = async () => {
     try {
-        const response = await fetch(`${PYTHON_API}/all-live-games`);
+        const response = await fetch(`${PYTHON_API_INGEST}/all-live-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -66,7 +90,7 @@ const getAllLiveGames = async () => {
 
 const getLiveMLSGames = async (req, res) => {
     try {
-        const response = await fetch(`${PYTHON_API}/live-mls-games`);
+        const response = await fetch(`${PYTHON_API_INGEST}/live-mls-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -87,5 +111,6 @@ module.exports = {
     getPrevMLSGames,
     getAllLiveGames,
     getLiveMLSGames,
-    getEuroGames
+    getEuroGames,
+    dbGetMLSGames
 };
