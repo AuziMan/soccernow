@@ -6,8 +6,8 @@ const { getAllTeams, getTeamById } = require('../config/teams'); // Adjust the p
 router.get('/teams', async (req, res) => {
     try {
       const teams = await getAllTeams();
-        console.log(teams)
-      res.render('./partials/teams', {
+        //console.log(teams)
+      res.render('./partials/team-partials/all-teams', {
         teams
       });
     } catch (error) {
@@ -26,12 +26,12 @@ router.get('/teams/:teamId', async (req, res) => {
 
         if (team) {
             // Render the team data to a view template
-            res.render('./partials/teams', {
-                teams: [team]
+            res.render('./partials/team-partials/teams', {
+              teams: [team]
             });
         } else {
             // If team not found, send a 404 response
-            res.render('./partials/no-team-found');
+            res.render('./partials/team-partials/no-team-found');
         }
     } catch (error) {
         console.error('Error fetching data from MongoDB:', error);

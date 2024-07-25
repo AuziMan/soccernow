@@ -1,0 +1,13 @@
+<body>
+    <div class="teams-container">
+        <% // Ensure teams is always an array %>
+        <% const teamsArray = Array.isArray(teams) ? teams : [teams]; %>
+
+        <% teamsArray.forEach(team => { %>
+            <div class="team">
+                <h3><%= team.team_name %></h1>
+                <img src="<%= team.team_logo %>" alt="<%= team.team_name %> Logo" class="team-logo">
+            </div>
+        <% }); %>
+    </div>
+</body>

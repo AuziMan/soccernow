@@ -66,9 +66,10 @@
   
   /* Layout */
   .container {
-    max-width: 982px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 0 10px;
+    border-style: dashed;
   }
   
   .main {
@@ -186,19 +187,41 @@
 /* Teams CSS */
 
 .teams-container {
+  max-width: 50%;
   margin: 20px;
+  border-style: dashed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 15px; /* Space between the grid items */
+
+
 }
 .team {
-  margin-bottom: 40px;
+  padding: 20px;
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  transition: background-color 0.6s, transform 0.6s; /* Slower transition */
+
 }
+
+.team:hover{
+  background-color: #2980b9; /* Darker blue background */
+  transform: scale(1.01); /* Slightly larger button */
+}
+
 .team-logo {
   width: 150px;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 .team-squad {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
 }
 .players {
   flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gaps */
@@ -224,4 +247,26 @@
 
 .team-games-container {
   border-style: dashed;
+  margin: 0 auto;
+  margin: 20px;
+  border-style: dashed;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+  gap: 15px; /* Space between the grid items */ 
 }
+
+.team-game-team{
+  padding: 20px;
+  border-style: dashed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 12px;
+  transition: background-color 0.6s, transform 0.6s; /* Slower transition */
+}
+
+.team-game-team:hover{
+  background-color: #2980b9; /* Darker blue background */
+  transform: scale(1.01); /* Slightly larger button */
+}
+
