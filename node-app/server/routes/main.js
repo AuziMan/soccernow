@@ -11,22 +11,25 @@ router.get('/', async (req, res) => {
       const liveMLS = await getLiveMLSGames();
       const dbMLSGames = await dbGetMLSGames();
 
-      const noData = !upcoming || !prev || !live || !liveMLS || !dbMLSGames ||
-                        (Array.isArray(dbMLSGames) && dbMLSGames.length === 0) ||
-                        (upcoming.response && upcoming.response.status == '308');
+      const api_response = {upcoming,prev,live,liveMLS,dbMLSGames }
 
-      if(noData){
+      function validte_data_response(input_data) {
+        for(const key in api_response){
+          if (!input_data[key] || (input_data[key].response && input_data[key].response.length === 0)){
+            return false;
+          }
+        }
+        return api_response;
+      }
+
+      let full_api_response = validte_data_response(api_response)
+
+      if(api_response == 'test'){
         res.render('partials/no-games', {
           message: 'No Games found'
         });
       } else {
-          res.render('main', {
-            dbMLSGames,
-            upcoming,
-            prev,
-            live,
-            liveMLS
-          });
+          res.render('main', full_api_response);
       }
     } catch (error) {
         console.error('Error fetching data from Python API:', error);

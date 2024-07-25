@@ -11,6 +11,19 @@ MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
 MONGO_CLUSTER = os.getenv('MONGO-CLUSTER')
 
+# Function used in each API call.
+def return_response(response): 
+    if response['results'] == 0:
+        noResponse = {
+                "result": 0
+        }
+        #print(noResponse)
+        return (noResponse)
+    else:
+        return jsonify(response)
+    
+
+
 mongo_uri = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_CLUSTER}/soccernow?retryWrites=true&w=majority"
 try:
     client = MongoClient(mongo_uri)
@@ -30,8 +43,6 @@ copaAmericaId = 10
 mlsLeageId = 253
 
 
-
-
 @ingest_blueprint.route('/up-mls-games')
 def get_up_mls_games():
     # Shared api keys
@@ -43,16 +54,9 @@ def get_up_mls_games():
 
     endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2024&next=10"
     response = requests.get(endpoint, headers=apiKeys)
-    
+
     data = response.json()
-    if data['results'] == 0:
-        noResponse = {
-                "result": 0
-        }
-        #print(noResponse)
-        return (noResponse)
-    else:
-        return jsonify(data)
+    return return_response(data)
 
 
 @ingest_blueprint.route('/prev-mls-games')
@@ -68,15 +72,8 @@ def get_prev_mls_games():
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
-    #print(data);
-    if data['results'] == 0:
-        noResponse = {
-                "result": 0
-        }
-        #print(noResponse)
-        return (noResponse)
-    else:
-        return jsonify(data)
+    return return_response(data)
+
 
 
 @ingest_blueprint.route('/all-live-games')
@@ -92,14 +89,8 @@ def get_all_live_games():
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
-    if data['results'] == 0:
-        noResponse = {
-                "result": 0
-        }
-        #print(noResponse)
-        return (noResponse)
-    else:
-        return jsonify(data)
+    return return_response(data)
+
 
 @ingest_blueprint.route('/live-mls-games')
 def get_live_mls_games():
@@ -114,15 +105,7 @@ def get_live_mls_games():
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
-    if data['results'] == 0:
-        noResponse = {
-                "result": 0
-        }
-        #print(noResponse)
-        return (noResponse)
-    else:
-        return jsonify(data)
-
+    return return_response(data)
 
 def get_mls_fixtures(fixture_count):
      
