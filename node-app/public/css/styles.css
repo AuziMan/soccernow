@@ -2,6 +2,8 @@
     background-color: gray;
 } */@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
 
+
+
 :root {
     --black: #1c1c1c;
     --gray: #7E7E7E;
@@ -169,6 +171,16 @@
     padding: 10px;
     text-decoration: none;
   }
+
+  /* header dropdown css */
+
+
+
+
+
+
+
+  /*  */
   
   .game {
     margin-bottom: 20px;

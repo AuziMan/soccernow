@@ -47,3 +47,23 @@ def get_team_by_id(team_id):
     else:
         return jsonify({'error': 'Team not found'}), 404
     
+
+@teams_blueprint.route('/league/<int:league_id>', methods=['GET'])
+def get_league_id(league_id):
+    print(f'Searched for league_id:{league_id}')
+    teams = teams_collection.find({'league_id': league_id})
+
+    if teams:
+        result = []
+        for team in teams:
+            result.append ({
+                'league_id': team.get('league_id'),
+                'team_id': team.get('team_id'),
+                'team_name': team.get('team_name'),
+                'team_logo': team.get('team_logo'),
+                'team_squad': team.get('squad')
+            })
+        return jsonify(result)
+    else:
+        return jsonify({'error': 'League not found'}), 404
+    

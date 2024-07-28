@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllTeams, getTeamById } = require('../config/teams'); // Adjust the path
+const { getAllTeams, getTeamById, getTeamsByLeague } = require('../config/teams'); // Adjust the path
 
 router.get('/teams', async (req, res) => {
     try {
@@ -37,6 +37,28 @@ router.get('/teams/:teamId', async (req, res) => {
         console.error('Error fetching data from MongoDB:', error);
         res.status(500).send('Error fetching data from MongoDB');
     }
+});
+
+router.get('/teams/league/:league_id', async (req, res) => {
+  const league_id = parseInt(req.params.league_id, 10); // Convert teamId to integer
+
+  try {
+      // Fetch the team data from MongoDB
+      const teams = await getTeamsByLeague(league_id);
+      console.log(teams)
+      if (teams) {
+          // Render the team data to a view template
+          res.render('./partials/team-partials/all-teams', {
+            teams
+          });
+      } else {
+          // If team not found, send a 404 response
+          res.render('./partials/team-partials/no-team-found');
+      }
+  } catch (error) {
+      console.error('Error fetching data from MongoDB:', error);
+      res.status(500).send('Error fetching data from MongoDB');
+  }
 });
 
 module.exports = router;

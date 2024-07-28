@@ -1,18 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Now</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 <header class="header">
     <div class="header-container">
         <a href="/" class="header__logo">Soccer Now</a>
     </div>
 
     <nav class="header__nav">
-        <ul>
-            <li>
-                <a href="/live-games" class="">live Games</a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="/live-games" class="nav-link">Live Games</a>
             </li>
-            <li>
-                <a href="/mls-games" class="">MLS Games</a>
+            <li class="nav-item">
+                <a href="/mls-games" class="nav-link">MLS Games</a>
             </li>
-            <li>
-                <a href="/teams" class="">teams</a>
+            <li class="nav-item dropdown">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/teams">MLS</a>
+                        <a class="dropdown-item" href="/teams">USL</a>
+                        <!-- Add more league links here if needed -->
+                    </div>
+                </div>
             </li>
         </ul>
     </nav>
@@ -30,3 +49,10 @@
         </button>
     </div>
 </header>
+
+<!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
