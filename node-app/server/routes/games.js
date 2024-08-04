@@ -7,25 +7,7 @@ const { dbGetMLSGames } = require('../config/games'); // Adjust the path
 
 const PYTHON_API = 'http://127.0.0.1:5000';
 
-// Get sports data from python API 
-// Route to get data from the Python API
-router.get('/euro-games', async (req, res) => {
-    try {
-      const response = await fetch(`${PYTHON_API}/ingest/euro-games`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-      if(data.result === 0){
-        res.render('./partials/no-games');
-      }else{
-        res.render('index', { data });
-      }
-    } catch (error) {
-      console.error('Error fetching data from Python API:', error);
-      res.status(500).send('Error fetching data from Python API');
-    }
-  });
+// Get sports data from python API ß
 
 
 router.get('/mls-games', async (req, res) => {
@@ -89,7 +71,7 @@ router.get('/games/:teamId', async(req, res) => {
     const game_data = await dbGetMLSGames(teamId)
 
     if (game_data) {
-      res.render('./partials/team-games', {
+      res.render('./partials/team-partials/team-games', {
         dbMLSGames: [game_data]
       });
     } else {

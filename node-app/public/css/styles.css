@@ -29,21 +29,7 @@
   h1 { font-size: var(--font-size-xl); }
   h2 { font-size: var(--font-size-lg); }
   h3 { font-size: var(--font-size-md); }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  select,
-  textarea {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    display: block;
-    box-sizing: border-box;
-    width: 75%;
-    padding: 0.7rem 0.75rem;
-    margin-bottom: 1rem;
-  }
+
   
   .btn {
     background-color: var(--black);
@@ -174,7 +160,25 @@
 
   /* header dropdown css */
 
+  .dropdown {
+    color: var(--black);
+    background-color: transparent; /* Ensure background remains transparent on hover */
+    border: none;
+  }
 
+  /* Define custom styles for the dropdown button */
+  .custom-dropdown-button {
+    color: var(--black);
+    color: #fff; /* Button text color */
+    border: none;
+
+
+  }
+
+  .custom-dropdown-button:hover {
+    background-color:#2980b9; /* Button background color on hover */
+    border-color: #2980b9; /* Border color on hover (optional) */
+  }
 
 
 
@@ -197,18 +201,23 @@
 
 
 /* Teams CSS */
+.center-wrapper {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
 
 .teams-container {
-  max-width: 50%;
+  max-width: 75%;
   margin: 20px;
   border-style: dashed;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   gap: 15px; /* Space between the grid items */
-
-
 }
-.team {
+
+
+.team-n-and-l {
   padding: 20px;
   border-style: dashed;
   display: flex;
@@ -216,25 +225,32 @@
   align-items: center;
   border-radius: 12px;
   transition: background-color 0.6s, transform 0.6s; /* Slower transition */
-
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides overflow text */
+  text-overflow: ellipsis; /* Adds ellipsis (...) if text overflows */
+  width: 100%; /* Ensures the div takes the full width available */
 }
 
-.team:hover{
+.team-n-and-l:hover{
   background-color: #2980b9; /* Darker blue background */
   transform: scale(1.01); /* Slightly larger button */
 }
 
 .team-logo {
-  width: 150px;
+  max-width: 95px;
   height: auto;
   display: flex;
   align-items: center;
 }
+
+
 .team-squad {
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
 }
+
+
 .players {
   flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gaps */
   box-sizing: border-box;
@@ -265,11 +281,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   gap: 15px; /* Space between the grid items */ 
+  max-width: 75%
 }
 
 .team-game-team{
   padding: 20px;
-  border-style: dashed;
   display: flex;
   flex-direction: column;
   align-items: center;

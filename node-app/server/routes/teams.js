@@ -39,13 +39,12 @@ router.get('/teams/:teamId', async (req, res) => {
     }
 });
 
-router.get('/teams/league/:league_id', async (req, res) => {
+router.get('/leagues/:league_id', async (req, res) => {
   const league_id = parseInt(req.params.league_id, 10); // Convert teamId to integer
 
   try {
       // Fetch the team data from MongoDB
       const teams = await getTeamsByLeague(league_id);
-      console.log(teams)
       if (teams) {
           // Render the team data to a view template
           res.render('./partials/team-partials/all-teams', {
