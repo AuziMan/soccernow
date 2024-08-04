@@ -35,7 +35,6 @@ def get_league_teams(league_id):
 
     endpoint = f"https://v3.football.api-sports.io/teams/?league={league_id}&season=2024"
     response = requests.get(endpoint, headers=apiKeys)
-    #print(response.json())
     if response.status_code == 200:
         data = response.json()
 
@@ -45,12 +44,14 @@ def get_league_teams(league_id):
             team_info = item.get('team', {})
             team_id = team_info.get('id')
             team_name = team_info.get('name')
+            team_logo = team_info.get('logo')
 
             if team_id and team_name:
                 teams.append({
                     'team_id': team_id,
                     'team_name': team_name,
-                    'league_id': league_id
+                    'league_id': league_id,
+                    'team_logo': team_logo
                 })
         print(teams)
         print("Extracted Team data:")
@@ -69,7 +70,6 @@ def get_team_squads(team_id):
 
     endpoint = f"https://v3.football.api-sports.io/players/squads?team={team_id}"
     response = requests.get(endpoint, headers=apiKeys)
-    #print(response.json())
     if response.status_code == 200:
         data = response.json()
 
@@ -114,7 +114,8 @@ def store_leage_teams(team_id):
             team_info = {
                 'team_id': team['team_id'],
                 'team_name': team['team_name'],
-                'league_id': team['league_id']
+                'league_id': team['league_id'],
+                'team_logo': team['team_logo']
             }
 
             result = teams_collection.update_one(
@@ -161,9 +162,9 @@ def store_team_squads(team_id):
 
 #league_teams = get_league_teams(255)
 
-# stored_league_teams = store_leage_teams(253)
+#stored_league_teams = store_leage_teams(39)
 
-team_squads = store_team_squads(3992)
+team_squads = store_team_squads(66)
 print (team_squads)
 
 

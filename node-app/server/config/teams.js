@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 
 
-const PYTHON_API = 'http://127.0.0.1:5000/teams';
+const PYTHON_API_TEAM = 'http://127.0.0.1:5000/teams';
+const PYTHON_API_LEAGUE = 'http://127.0.0.1:5000/leagues';
+
 
 const getAllTeams = async () => {
     try {
-        const response = await fetch(`${PYTHON_API}/teams`);
+        const response = await fetch(`${PYTHON_API_TEAM}/teams`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -21,7 +23,7 @@ const getAllTeams = async () => {
 
 const getTeamById = async (teamId) => {
     try {
-        const response = await fetch(`${PYTHON_API}/${teamId}`);
+        const response = await fetch(`${PYTHON_API_TEAM}/${teamId}`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -36,7 +38,7 @@ const getTeamById = async (teamId) => {
 
 const getTeamsByLeague = async (league_id) => {
     try {
-        const response = await fetch(`${PYTHON_API}/league/${league_id}`);
+        const response = await fetch(`${PYTHON_API_LEAGUE}/${league_id}`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }

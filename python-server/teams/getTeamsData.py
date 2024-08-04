@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 teams_blueprint = Blueprint('teams', __name__)
+league_blueprint = Blueprint('leagues', __name__)
+
 
 # MongoDB setup
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
@@ -48,7 +50,7 @@ def get_team_by_id(team_id):
         return jsonify({'error': 'Team not found'}), 404
     
 
-@teams_blueprint.route('/league/<int:league_id>', methods=['GET'])
+@league_blueprint.route('/<int:league_id>', methods=['GET'])
 def get_league_id(league_id):
     print(f'Searched for league_id:{league_id}')
     teams = teams_collection.find({'league_id': league_id})
@@ -64,6 +66,23 @@ def get_league_id(league_id):
                 'team_squad': team.get('squad')
             })
         return jsonify(result)
+    else:
+        return jsonify({'error': 'League not found'}), 404
+
+
+
+@league_blueprint.route('/list', methods=['GET'])
+def get_league_list():
+    league_ids = teams_collection.distinct('league_id')
+    
+    if league_ids:
+        leagues = []
+        for league_id in league_ids:
+            league = teams_collection.find_one({'league_id': league_id})
+            if league:
+                leagues.append(league)
+        
+        return jsonify(leagues)
     else:
         return jsonify({'error': 'League not found'}), 404
     

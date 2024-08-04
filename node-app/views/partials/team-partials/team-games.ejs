@@ -1,10 +1,11 @@
-<h1>team-game partials</h1>
 
 <body>
     <div class="team-games-container">
         <% // Ensure dbMLSGames is always an array %>
         <% const gamesArray = Array.isArray(dbMLSGames) ? dbMLSGames.flat() : [dbMLSGames]; %>
-
+        <% if (gamesArray.length === 0) { %>
+            <%- include('../../partials/no-games') %>
+        <% } else { %>
         <% gamesArray.forEach(game => { %>
             <div class="team-game-team">
                 <% if (game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away) { %>
@@ -17,11 +18,8 @@
                 <% } %>
             </div>
         <% }); %>
+        <% } %>
+
     </div>
 </body>
 
-
-<script>
-    const mlsGames = <%- JSON.stringify(dbMLSGames) %>;
-    console.log('DB response', mlsGames);
-</script>

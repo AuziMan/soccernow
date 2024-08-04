@@ -1,13 +1,24 @@
 <body>
-    <div class="teams-container">
-        <% // Ensure teams is always an array %>
-        <% const teamsArray = Array.isArray(teams) ? teams : [teams]; %>
+    <h1>Teams page</h1>
 
-        <% teamsArray.forEach(team => { %>
-            <div class="team">
-                <h3><%= team.team_name %></h1>
-                <img src="<%= team.team_logo %>" alt="<%= team.team_name %> Logo" class="team-logo">
-            </div>
-        <% }); %>
+    <div class="center-wrapper">
+        <div class="teams-container">
+            <% // Ensure teams is always an array %>
+            <% const teamsArray = Array.isArray(teams) ? teams : [teams]; %>
+                <% teamsArray.forEach(team => { %>
+                <a href="/games/<%= team.team_id %>">
+                    <div class="team-n-and-l">
+                        <h3><%= team.team_name %></h3>
+                        <img src="<%= team.team_logo %>" alt="<%= team.team_name %> Logo" class="team-logo">
+                    </div>
+                <% }); %>
+            </a>
+        </div>
     </div>
 </body>
+
+
+<script>
+    const teams = <%- JSON.stringify(teamsArray) %>;
+    console.log('DB response', teams);
+</script>
