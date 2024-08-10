@@ -25,12 +25,12 @@ const getEuroGames = async () => {
 
 const getUpcomingMLSGames = async () => {
     try {
-        const response = await fetch(`${PYTHON_API_INGEST}/up-mls-games`);
+        const response = await fetch(`${PYTHON_API_GAMES}/upcoming-games`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        //console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.error('Error fetching data from Python API:', error);
@@ -96,9 +96,7 @@ const getLiveMLSGames = async (req, res) => {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log(data);
         return data;
-
 
         //console.log(data);
     } catch (error) {
@@ -109,7 +107,6 @@ const getLiveMLSGames = async (req, res) => {
 
 module.exports = {
     getUpcomingMLSGames,
-    getPrevMLSGames,
     getAllLiveGames,
     getLiveMLSGames,
     getEuroGames,

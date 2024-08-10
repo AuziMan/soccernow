@@ -1,8 +1,7 @@
 <body>
     <div class="container">
-        <h3>Live Team  Games</h3>
         <% if (liveMLS.result === 0) { %>
-         <h1>No MLS Games On Right Now</h1>
+         <h3 class="live-games">No MLS Games On Right Now</h3>
         <% } else { %>
           <div class="games">
             <% liveMLS.response.forEach(fixture => { %>

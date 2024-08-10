@@ -177,4 +177,6 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-mls_fixtures = store_fixture_info(10, 255)
+# mls_fixtures = store_fixture_info(20, 39)
+# print (mls_fixtures)
+

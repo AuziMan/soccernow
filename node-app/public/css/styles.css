@@ -207,6 +207,10 @@
   align-items: center; /* Centers vertically */
 }
 
+.live-games{
+  text-align: center;
+}
+
 .teams-container {
   max-width: 75%;
   margin: 20px;
@@ -281,7 +285,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 items per row */
   gap: 15px; /* Space between the grid items */ 
-  max-width: 75%
+  max-width: 75%;  
 }
 
 .team-game-team{
