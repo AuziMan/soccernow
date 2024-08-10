@@ -1,0 +1,28 @@
+
+<body>
+    <h1>Games today</h1>
+    <div class="center-wrapper">
+        <div class="team-games-container">
+            <% // Ensure dbMLSGames is always an array %>
+            <% const gamesArray = Array.isArray(gamesToday) ? gamesToday.flat() : [gamesToday]; %>
+            <% if (gamesArray.length === 0) { %>
+                <%- include('../partials/no-games') %>
+            <% } else { %>
+            <% gamesArray.forEach(game => { %>
+                <div class="team-game-team">
+                    <% if (game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away) { %>
+                        <h3><%= game.fixture_teams.home.name %> vs <%= game.fixture_teams.away.name %></h2>
+                        <img src="<%= game.fixture_teams.home.logo %>" alt="<%= game.fixture_teams.home.name %> Logo" class="team-logo">
+                        <img src="<%= game.fixture_teams.away.logo %>" alt="<%= game.fixture_teams.away.name %> Logo" class="team-logo">
+                        <p>Date: <%= new Date(game.fixture_date).toLocaleString() %></p>
+                    <% } else { %>
+                        <p>Some game data is missing.</p>
+                    <% } %>
+                </div>
+            <% }); %>
+            <% } %>
+
+        </div>
+    </div>
+</body>
+

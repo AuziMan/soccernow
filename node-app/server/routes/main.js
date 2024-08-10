@@ -1,17 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const { dbGetMLSGames, getUpcomingMLSGames, getAllLiveGames, getLiveMLSGames } = require('../config/games'); // Adjust the path
+const { dbGetMLSGames, getUpcomingMLSGames, getGamesToday, getAllLiveGames, getLiveMLSGames } = require('../config/games'); // Adjust the path
 
 router.get('/', async (req, res) => {
     try {
       const upcoming = await getUpcomingMLSGames();
       const live = await getAllLiveGames();
       const liveMLS = await getLiveMLSGames();
+      const gamesToday = await getGamesToday();
       // const dbMLSGames = await dbGetMLSGames();
       //const api_response = {upcoming,live,liveMLS,dbMLSGames }
 
-      const api_response = {upcoming,live,liveMLS }
+      const api_response = {upcoming, gamesToday, live,liveMLS }
 
       function validate_data_response(input_data) {
         for(const key in api_response){

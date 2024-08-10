@@ -2,9 +2,10 @@ from bson.json_util import dumps, loads
 from flask import Flask, jsonify, request, Blueprint
 from pymongo import MongoClient
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 from dotenv import load_dotenv
 import pytz
+
 
 
 load_dotenv()
@@ -69,7 +70,7 @@ def get_upcoming_games():
     try:
 
         #set current Dates
-        current_date = datetime.now(pytz.utc)
+        current_date = datetime.now(pytz.utc) + timedelta(days=1)
         two_weeks_ahead = current_date + timedelta(weeks=1)
 
         #function to format dates to match stored format
@@ -90,6 +91,40 @@ def get_upcoming_games():
        # Fetch all docusments from the 'games' collection
         results = list(games_collection.find(query))
 
+        # for doc in results:
+        #     print(doc)
+        # Convert MongoDB documents to JSON-serializable format
+        upcoming_games = dumps(results)
+
+        return upcoming_games, 200, {'Content-Type': 'application/json'}
+    
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return jsonify({'error': 'An error occurred while fetching the games.'}), 500
+    
+
+@games_blueprint.route('/games-today', methods=['GET'])
+def get_games_today():
+    try:
+
+        #set Todays Date
+        today_date = str(date.today())
+        end_of_today_str = str(date.today() + timedelta(days=1))
+
+        #Query to mongo
+        query = {
+            'fixture_date':{
+                '$gte': today_date,
+                '$lt': end_of_today_str
+           }
+        }
+
+        print(today_date)
+        print(end_of_today_str)
+
+       # Fetch all docusments from the 'games' collection
+        results = list(games_collection.find(query))
+        print(results)
         # for doc in results:
         #     print(doc)
         # Convert MongoDB documents to JSON-serializable format
