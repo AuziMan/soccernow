@@ -1,11 +1,12 @@
 
 <body>
+    <h1>Games today</h1>
     <div class="center-wrapper">
         <div class="team-games-container">
             <% // Ensure dbMLSGames is always an array %>
-            <% const gamesArray = Array.isArray(dbMLSGames) ? dbMLSGames.flat() : [dbMLSGames]; %>
+            <% const gamesArray = Array.isArray(gamesToday) ? gamesToday.flat() : [gamesToday]; %>
             <% if (gamesArray.length === 0) { %>
-                <%- include('../../partials/no-games') %>
+                <%- include('../partials/no-games') %>
             <% } else { %>
             <% gamesArray.forEach(game => { %>
                 <div class="team-game-team">
