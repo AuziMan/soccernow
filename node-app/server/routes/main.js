@@ -11,6 +11,8 @@ router.get('/', async (req, res) => {
       const gamesToday = await getGamesToday();
       // const dbMLSGames = await dbGetMLSGames();
       //const api_response = {upcoming,live,liveMLS,dbMLSGames }
+      
+      
 
       const api_response = {upcoming, gamesToday, live,liveMLS }
 

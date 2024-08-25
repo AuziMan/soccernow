@@ -44,6 +44,14 @@ img {
     width: 100%;
     height: auto;
 }
+
+.main-title{
+  text-align: center;
+}
+
+.games-title{
+  text-align: center;
+}
   
 /* Layout */
 .container {
@@ -207,12 +215,19 @@ img {
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
+    border-style: dashed;
 }
 
-.live-games{
-    text-align: center;
+.no-live-games {
+  text-align: center;
+  font-size: var(--font-size-md); /* Adjust font size as needed */
+  color: var(--black); /* Set the text color */
+  margin: 0; /* Ensure there's no default margin that might affect centering */
+  display: flex; /* Flexbox to help center the text inside the div */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Takes up the full height of the container */
 }
-
 .teams-container {
     max-width: 75%;
     margin: 20px;
