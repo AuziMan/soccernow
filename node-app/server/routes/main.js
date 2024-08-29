@@ -1,18 +1,32 @@
 const express = require('express');
 const router = express.Router();
 
-const { dbGetMLSGames, getUpcomingMLSGames, getGamesToday, getAllLiveGames, getLiveMLSGames } = require('../config/games'); // Adjust the path
+const { dbGetMLSGames, getUpcomingGames, getGamesToday, getAllLiveGames, getLiveMLSGames } = require('../config/games'); // Adjust the path
+
+function getTimeZone() {
+  const options = { timeZoneName: 'short' };
+  const date = new Date();
+  const timezone = date.toLocaleString('en-US', options).split(' ')[3];
+  return timezone;
+}
+
+const userTimezone = getTimeZone();
+console.log(userTimezone); // Output: PST, EST, CST, etc.
+
 
 router.get('/', async (req, res) => {
     try {
-      const upcoming = await getUpcomingMLSGames();
+
+      const leagueId = req.query.leagueId
+
+      const upcoming = await getUpcomingGames(leagueId);
       const live = await getAllLiveGames();
       const liveMLS = await getLiveMLSGames();
-      const gamesToday = await getGamesToday();
+      const gamesToday = await getGamesToday(userTimezone);
       // const dbMLSGames = await dbGetMLSGames();
       //const api_response = {upcoming,live,liveMLS,dbMLSGames }
       
-      
+
 
       const api_response = {upcoming, gamesToday, live,liveMLS }
 

@@ -23,24 +23,33 @@ const getEuroGames = async () => {
     }
 }
 
-const getUpcomingMLSGames = async () => {
+const getUpcomingGames = async (leagueId = '') => {
     try {
-        const response = await fetch(`${PYTHON_API_GAMES}/upcoming-games`);
+        const url = leagueId 
+            ? `${PYTHON_API_GAMES}/upcoming-games?leagueId=${leagueId}`
+            : `${PYTHON_API_GAMES}/upcoming-games`;
+        
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-        const data = await response.json();
-        // console.log(data);
-        return data;
+        return await response.json();
     } catch (error) {
-        console.error('Error fetching data from Python API:', error);
-        throw error; // Re-throw the error to handle it in the calling function
+        console.error('Error fetching upcoming games from Python API:', error);
+        throw error;
     }
 }
 
-const getGamesToday = async () => {
+
+const getGamesToday = async (timezone) => {
     try {
-        const response = await fetch(`${PYTHON_API_GAMES}/games-today`);
+        const response = await fetch(`${PYTHON_API_GAMES}/games-today`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({timezone})
+        });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -51,7 +60,7 @@ const getGamesToday = async () => {
         console.error('Error fetching data from Python API:', error);
         throw error; // Re-throw the error to handle it in the calling function
     }
-}
+};
 
 const dbGetMLSGames = async (teamId) => {
     try {
@@ -121,7 +130,7 @@ const getLiveMLSGames = async (req, res) => {
 }
 
 module.exports = {
-    getUpcomingMLSGames,
+    getUpcomingGames,
     getAllLiveGames,
     getLiveMLSGames,
     getEuroGames,

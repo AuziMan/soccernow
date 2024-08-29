@@ -1,7 +1,21 @@
-
 <body>
     <div class="games-title">
         <h1>Upcoming games!</h1>
+    </div>
+    <div class="upcoming-leagues">
+        <!-- Forms for each league button -->
+        <form action="/games/upcoming-games" method="GET" class="league-form">
+            <input type="hidden" name="leagueId" value="253">
+            <button type="submit">MLS</button>
+        </form>
+        <form action="/games/upcoming-games" method="GET" class="league-form">
+            <input type="hidden" name="leagueId" value="255">
+            <button type="submit">USL</button>
+        </form>
+        <form action="/games/upcoming-games" method="GET" class="league-form">
+            <input type="hidden" name="leagueId" value="39">
+            <button type="submit">EPL</button>
+        </form>
     </div>
     <div class="center-wrapper">
         <div class="team-games-container">
@@ -13,7 +27,7 @@
             <% gamesArray.forEach(game => { %>
                 <div class="team-game-team">
                     <% if (game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away) { %>
-                        <h3><%= game.fixture_teams.home.name %> vs <%= game.fixture_teams.away.name %></h2>
+                        <h3><%= game.fixture_teams.home.name %> vs <%= game.fixture_teams.away.name %></h3>
                         <img src="<%= game.fixture_teams.home.logo %>" alt="<%= game.fixture_teams.home.name %> Logo" class="team-logo">
                         <img src="<%= game.fixture_teams.away.logo %>" alt="<%= game.fixture_teams.away.name %> Logo" class="team-logo">
                         <p>Date: <%= new Date(game.fixture_date).toLocaleString() %></p>
@@ -23,8 +37,6 @@
                 </div>
             <% }); %>
             <% } %>
-
         </div>
     </div>
 </body>
-
