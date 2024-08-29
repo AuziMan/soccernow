@@ -26,43 +26,25 @@ router.get('/mls-games', async (req, res) => {
       console.error('Error fetching data from Python API:', error);
       res.status(500).send('Error fetching data from Python API');
     }
-  });
+});
 
-  router.get('/live-games', async (req, res) => {
-    try {
-      const response = await fetch(`${PYTHON_API}/ingest/all-live-games`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const live = await response.json();
-      if(live.result === 0){
-        res.render('./partials/no-games');
-      }else{
-        res.render('live-games', { live });
-      }
-    } catch (error) {
-        console.error('Error fetching data from Python API:', error);
-        res.status(500).send('Error fetching data from Python API');
-      }
-    });
-
-    router.get('/live-games', async (req, res) => {
-      try {
-        const response = await fetch(`${PYTHON_API}/ingest/all-live-games`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const live = await response.json();
-        if(live.result === 0){
-          res.render('./partials/no-games');
-        }else{
-          res.render('live-games', { live });
-        }
-      } catch (error) {
-          console.error('Error fetching data from Python API:', error);
-          res.status(500).send('Error fetching data from Python API');
-        }
-      });
+router.get('/live-games', async (req, res) => {
+  try {
+    const response = await fetch(`${PYTHON_API}/ingest/all-live-games`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const live = await response.json();
+    if(live.result === 0){
+      res.render('./partials/no-games');
+    }else{
+      res.render('live-games', { live });
+    }
+  } catch (error) {
+      console.error('Error fetching data from Python API:', error);
+      res.status(500).send('Error fetching data from Python API');
+    }
+});
 
 router.get('/games/:teamId', async(req, res) => {
   const teamId = parseInt(req.params.teamId, 10); // Convert teamId to integer

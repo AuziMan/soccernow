@@ -1,8 +1,4 @@
-/* body {
-    background-color: gray;
-} */@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
-
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
 
 :root {
     --black: #1c1c1c;
@@ -14,24 +10,22 @@
     --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
     --font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
     --border-radius: 10px;
-  }
+}
   
-  body {
+body {
     font-family: 'Poppins', sans-serif;
     color: var(--black);
     font-size: var(--font-size-base);
     background-color: #FAF5EE;
-    background-image: url("/img/img-noise-361x370.png");
     margin: 0;
-  }
+}
   
-  a { color: var(--black); }
-  h1 { font-size: var(--font-size-xl); }
-  h2 { font-size: var(--font-size-lg); }
-  h3 { font-size: var(--font-size-md); }
-
+a { color: var(--black); }
+h1 { font-size: var(--font-size-xl); }
+h2 { font-size: var(--font-size-lg); }
+h3 { font-size: var(--font-size-md); }
   
-  .btn {
+.btn {
     background-color: var(--black);
     border: none;
     color: white; 
@@ -39,39 +33,45 @@
     text-decoration: none;
     margin: 4px 2px; 
     cursor: pointer;
-  }
+}
   
-  .btn-delete {
+.btn-delete {
     padding: 10px 16px;
     background-color: var(--red);
-  }
+}
   
-  
-  img {
+img {
     width: 100%;
     height: auto;
-  }
+}
+
+.main-title{
+  text-align: center;
+}
+
+.games-title{
+  text-align: center;
+}
   
-  /* Layout */
-  .container {
+/* Layout */
+.container {
     max-width: 90%;
     margin: 0 auto;
     padding: 0 10px;
     border-style: dashed;
-  }
+}
   
-  .main {
+.main {
     padding: 20px 0;
-  }
+}
 
-
-  .image_container{
+.image_container{
     display: flex;
     gap: 5px;
-  }
+}
   
-  /* Main Header */
-  .header {
+/* Main Header */
+.header {
     display: grid;
     align-items: center;
     grid-template-columns: auto 1fr;
@@ -80,53 +80,62 @@
     "logo button"
     "menu menu";
     padding-top: 20px;
-  }
+}
 
-  .header-container {
+.header-container {
     display: flex;
     align-items: center; /* Ensure items are vertically centered */
     grid-area: logo;
-  }
+}
   
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     .header {
-      grid-template-columns: auto 1fr auto;
-      grid-template-areas: 
-      "logo menu button";
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+        "logo menu button";
     }
-  }
+}
   
-  .header__logo {
+.header__logo {
     font-weight: 800;
     font-size: 25px;
     text-decoration: none;
     grid-area: logo;
     align-self: center;
     margin: 0;
-  }
+}
   
-  .header__logo:hover {
+.header__logo:hover {
     text-decoration: underline;
-  }
+}
   
-  .header__nav {
+.header__nav {
     justify-content: center;
     display: flex;
     grid-area: menu;
-  }
+    font-family: 'Poppins', sans-serif; /* Consistent font for the entire header */
+    font-weight: 400; /* Adjust as needed */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center; /* Vertically align items in the center */
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+    font-weight: 400; /* Adjust as needed */
+}
   
-  .header__logo, .header__nav, .header__button {
+.header__logo, .header__nav, .header__button {
     width: auto;
     margin: 0;
-  }
+}
   
-  .header__button {
+.header__button {
     display: flex;
     justify-content: end;
     grid-area: button;
-  }
+}
   
-  .header__button button {
+.header__button button {
     display: flex;
     gap: 0.3rem;
     align-items: center;
@@ -138,55 +147,57 @@
     font-size: 1rem;
     font-weight: 600;
     color: var(--black);
-  }
+}
   
-  .header__button button:hover {
+.header__button button:hover {
     border: 2px solid var(--black);
-  }
+}
   
-  /* Header -> Navigation */
-  .header__nav ul {
+/* Header -> Navigation */
+.header__nav ul {
     list-style-type: none;
     display: flex;
     gap: 1rem;
     font-weight: 600;
     padding: 0;
-  }
+}
   
-  .header__nav ul a {
+.header__nav ul a {
     padding: 10px;
     text-decoration: none;
-  }
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+    font-weight: 400; /* Adjust as needed */
+}
 
-  /* header dropdown css */
-
-  .dropdown {
-    color: var(--black);
+/* Header Dropdown CSS */
+.dropdown {
+    color: blue;
     background-color: transparent; /* Ensure background remains transparent on hover */
     border: none;
-  }
+}
 
-  /* Define custom styles for the dropdown button */
-  .custom-dropdown-button {
-    color: var(--black);
-    color: #fff; /* Button text color */
+.custom-dropdown-button {
+    color: black;
     border: none;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+    font-size: var(--font-size-base);
+    font-weight: 400; /* Adjust as needed */
+}
 
-
-  }
-
-  .custom-dropdown-button:hover {
-    background-color:#2980b9; /* Button background color on hover */
+.custom-dropdown-button:hover {
     border-color: #2980b9; /* Border color on hover (optional) */
-  }
+}
 
+/* Ensure dropdown items use the same font settings */
+.dropdown-menu a {
+    font-family: 'Poppins', sans-serif; /* Consistent font */
+    font-weight: 400; /* Adjust as needed */
+}
 
+/*  */
 
-
-
-  /*  */
-  
-  .game {
+.game {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding: 10px;
@@ -199,102 +210,107 @@
     margin: 0 10px;
 }
 
-
 /* Teams CSS */
 .center-wrapper {
-  display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    border-style: dashed;
 }
 
+.no-live-games {
+  text-align: center;
+  font-size: var(--font-size-md); /* Adjust font size as needed */
+  color: var(--black); /* Set the text color */
+  margin: 0; /* Ensure there's no default margin that might affect centering */
+  display: flex; /* Flexbox to help center the text inside the div */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%; /* Takes up the full height of the container */
+}
 .teams-container {
-  max-width: 75%;
-  margin: 20px;
-  border-style: dashed;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  gap: 15px; /* Space between the grid items */
+    max-width: 75%;
+    margin: 20px;
+    border-style: dashed;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 15px; /* Space between the grid items */
 }
-
 
 .team-n-and-l {
-  padding: 20px;
-  border-style: dashed;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 12px;
-  transition: background-color 0.6s, transform 0.6s; /* Slower transition */
-  white-space: nowrap; /* Prevents text from wrapping */
-  overflow: hidden; /* Hides overflow text */
-  text-overflow: ellipsis; /* Adds ellipsis (...) if text overflows */
-  width: 100%; /* Ensures the div takes the full width available */
+    padding: 20px;
+    border-style: dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.6s, transform 0.6s; /* Slower transition */
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow text */
+    text-overflow: ellipsis; /* Adds ellipsis (...) if text overflows */
+    width: 100%; /* Ensures the div takes the full width available */
 }
 
-.team-n-and-l:hover{
-  background-color: #2980b9; /* Darker blue background */
-  transform: scale(1.01); /* Slightly larger button */
+.team-n-and-l:hover {
+    background-color: #2980b9; /* Darker blue background */
+    transform: scale(1.01); /* Slightly larger button */
 }
 
 .team-logo {
-  max-width: 95px;
-  height: auto;
-  display: flex;
-  align-items: center;
+    max-width: 95px;
+    height: auto;
+    display: flex;
+    align-items: center;
 }
-
 
 .team-squad {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
 }
-
 
 .players {
-  flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gaps */
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px 0;
+    flex: 1 1 calc(33.333% - 20px); /* 3 cards per row, accounting for gaps */
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
 }
 .players h2 {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 @media (max-width: 768px) {
-  .players {
-    flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
-  }
+    .players {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row on smaller screens */
+    }
 }
 @media (max-width: 480px) {
-  .players {
-    flex: 1 1 100%; /* 1 card per row on very small screens */
-  }
+    .players {
+        flex: 1 1 100%; /* 1 card per row on very small screens */
+    }
 }
-
 
 .team-games-container {
-  border-style: dashed;
-  margin: 0 auto;
-  margin: 20px;
-  border-style: dashed;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-  gap: 15px; /* Space between the grid items */ 
-  max-width: 75%
+    border-style: dashed;
+    margin: 0 auto;
+    margin: 20px;
+    border-style: dashed;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 15px; /* Space between the grid items */ 
+    max-width: 75%;  
 }
 
-.team-game-team{
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 12px;
-  transition: background-color 0.6s, transform 0.6s; /* Slower transition */
+.team-game-team {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.6s, transform 0.6s; /* Slower transition */
 }
 
-.team-game-team:hover{
-  background-color: #2980b9; /* Darker blue background */
-  transform: scale(1.01); /* Slightly larger button */
+.team-game-team:hover {
+    background-color: #2980b9; /* Darker blue background */
+    transform: scale(1.01); /* Slightly larger button */
 }
-

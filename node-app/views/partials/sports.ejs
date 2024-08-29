@@ -1,7 +1,7 @@
 <body>
 
     <div class="container">
-        <% if (upcoming.result === 0) { %>
+        <% if (upcoming.result) { %>
          <h1>None available</h1>
         <% } else { %>
         <h3>Upcoming <%= upcoming.response[0].league.name %> Games</h3>
@@ -18,7 +18,7 @@
         <% } %>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <% if (prev.result === 0) { %>
             <h1>None available</h1>
         <% } else { %>
@@ -36,13 +36,9 @@
             <% }); %>
         </div>
         <% } %>
-    </div>
+    </div> -->
 
 </body>
 
 <!-- data.league.name -->
 
-<script>
-    const upcoming = <%- JSON.stringify(upcoming) %>;
-    console.log('Upcoming MLS Games', upcoming);
-</script>
