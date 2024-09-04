@@ -1,4 +1,6 @@
 from flask import Flask
+from flask_cors import CORS
+
 from games.ingestGamesData import ingest_blueprint, store_fixture_info
 from games.getGamesData import games_blueprint
 from teams.getTeamsData import teams_blueprint
@@ -7,6 +9,7 @@ from common.common import time_zone_blueprint
 
 
 app = Flask(__name__)
+CORS(app)
 
 # Register blueprints
 app.register_blueprint(ingest_blueprint, url_prefix='/ingest')
