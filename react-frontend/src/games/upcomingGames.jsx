@@ -3,6 +3,8 @@ import '../css/upcomingGames.css';
 
 function UpcomingGames() {
     const [games, setGames] = useState([]);
+    const [isLoading, setIsLoading] = useState(true); // New isLoading state
+
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/upcoming-games`)
@@ -10,18 +12,24 @@ function UpcomingGames() {
             .then(data => {
                 console.log('Fetched Data:', data); // Log the fetched data to verify
                 setGames(data);
+                setIsLoading(false)
             })
             .catch(error => console.error('Error fetching data:', error));
+            setIsLoading(false)
+
     }, []);
 
     const renderGames = () => {
+        if(isLoading) {
+            return <div>Loading...</div>
+        }
+
         if (!Array.isArray(games) || games.length === 0) {
             return <div>No upcoming games available.</div>;
         }
 
         return games.map((game, index) => (
             <div class="center-wrapper">
-
                     <div key={index} className="team-game-team">
                         {game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away ? (
                             <>

@@ -164,7 +164,7 @@ def store_team_squads(team_id):
 
 #stored_league_teams = store_leage_teams(39)
 
-team_squads = store_team_squads(3996)
+team_squads = store_team_squads(39)
 print (team_squads)
 
 

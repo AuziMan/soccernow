@@ -1,17 +1,29 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import UpcomingGames from './server/upcomingGames'; // Import the UpcomingGames component
 import HeaderNavBar from './views/navBar';
+import GamesToday from './games/gamesToday'; // Import the UpcomingGames component
+import UpcomingGames from './games/upcomingGames'; // Import the UpcomingGames component
+import Teams from './teams/teamId'
+import TeamSquads from './teams/teamSquad';
+
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <HeaderNavBar />
+      <Routes>
+        <Route path="/" element={<>
+          <GamesToday />
+          <UpcomingGames />
+        </>} />
 
-      <h1>Soccer Information</h1>
-      <UpcomingGames />  {/* Include the UpcomingGames component */}
+        {/* Add the dynamic route for teams */}
+        <Route path="/leagues/:leagueId" element={<Teams />} />
+        <Route path="/teams/:teamId" element={<TeamSquads/>} />
 
-    </div>
+        </Routes>
+    </Router>
   );
 }
 
