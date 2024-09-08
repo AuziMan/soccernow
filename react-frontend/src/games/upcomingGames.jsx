@@ -33,11 +33,14 @@ function UpcomingGames() {
                     <div key={index} className="team-game-team">
                         {game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away ? (
                             <>
-                                <h3>{game.fixture_teams.home.name} vs {game.fixture_teams.away.name}</h3>
+                            {/* <div className="game-card"> */}
+                                <h3>{game.fixture_teams.home.name}</h3>
+                                <h4>vs</h4>
+                                <h3>{game.fixture_teams.away.name}</h3>
                                 <img src={game.fixture_teams.home.logo} alt={`${game.fixture_teams.home.name} Logo`} className="team-logo" />
                                 <img src={game.fixture_teams.away.logo} alt={`${game.fixture_teams.away.name} Logo`} className="team-logo" />
                                 <p>Date: {new Date(game.fixture_date).toLocaleString()}</p>
-                                {/* <p>Location: {game.fixture_venue_name}, {game.fixture_venue_city}</p> */}
+                            {/* </div> */}
                             </>
                         ) : (
                             <p>Some game data is missing.</p>

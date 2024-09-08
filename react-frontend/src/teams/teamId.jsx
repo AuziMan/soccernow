@@ -54,6 +54,7 @@ function TeamId() {
                         className="team-card"
                     >
                         <h3>{team.team_name}</h3>
+                        <h3>{team.team_id}</h3>
                         <img
                         src={team.team_logo}
                         alt={`${team.team_name} logo`}

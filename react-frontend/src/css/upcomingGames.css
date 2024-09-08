@@ -35,6 +35,11 @@
     transform: scale(1.01); /* Slightly larger button */
 }
 
+/* .game-card{
+    align-items: center;
+    border-style: dashed;
+} */
+
 .team-logo {
     max-width: 95px;
     height: auto;
