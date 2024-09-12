@@ -47,6 +47,11 @@ function TeamSquads() {
                     <div className="squad-list">
                         {team.team_squad.map((player) => (
                             <div key={player.id} className="player-card">
+                                <img
+                                    src={player.phote}
+                                    alt={`${player.name} logo`}
+                                    className="team-logo"
+                                />
                                 <h4>{player.name}</h4>
                                 <p>Position: {player.position}</p>
                                 <p>Number: {player.number ? player.number : 'N/A'}</p>

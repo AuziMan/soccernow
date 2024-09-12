@@ -17,6 +17,11 @@ function TeamId() {
                     throw new Error(`Error fetching teams: ${response.statusText}`);
                 }
                 const data = await response.json();
+                // console.log(data)
+
+                const teamIds = data.map(team => team.team_id).join(', ');
+                console.log('Team IDs (Comma-Separated):', teamIds);
+
                 setTeams(data)
                 setIsLoading(false);
             } catch (error){
@@ -36,7 +41,6 @@ function TeamId() {
             </div>
         )
     }
-
 
     if(error){
         return <div>Error: {error}</div>

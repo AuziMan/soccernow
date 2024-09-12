@@ -87,14 +87,16 @@ def get_team_squads(team_id):
                 player_id = player.get('id')
                 player_name = player.get('name')
                 player_number = player.get('number')
-                player_position = player.get('position')
+                player_position = player.get('position'),
+                player_photo = player.get('photo')
 
                 if player_id and player_name:
                     squad.append({
                         'id': player_id,
                         'name': player_name,
                         'number': player_number,
-                        'position': player_position
+                        'position': player_position,
+                        'phote': player_photo
                     })
         return {
             'team_id': team_id,
@@ -164,7 +166,15 @@ def store_team_squads(team_id):
 
 #stored_league_teams = store_leage_teams(39)
 
-team_squads = store_team_squads(39)
-print (team_squads)
+
+# updateList = [65, 66]
+
+
+
+# for number in updateList:
+#     store_team_squads(number)
+#     print(number)
+
+# print (team_squads)
 
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../css/upcomingGames.css';
+import GameCards from '../components/GameCards';
 
 function UpcomingGames() {
     const [games, setGames] = useState([]);
@@ -29,24 +30,7 @@ function UpcomingGames() {
         }
 
         return games.map((game, index) => (
-            <div class="center-wrapper">
-                    <div key={index} className="team-game-team">
-                        {game.fixture_teams && game.fixture_teams.home && game.fixture_teams.away ? (
-                            <>
-                            {/* <div className="game-card"> */}
-                                <h3>{game.fixture_teams.home.name}</h3>
-                                <h4>vs</h4>
-                                <h3>{game.fixture_teams.away.name}</h3>
-                                <img src={game.fixture_teams.home.logo} alt={`${game.fixture_teams.home.name} Logo`} className="team-logo" />
-                                <img src={game.fixture_teams.away.logo} alt={`${game.fixture_teams.away.name} Logo`} className="team-logo" />
-                                <p>Date: {new Date(game.fixture_date).toLocaleString()}</p>
-                            {/* </div> */}
-                            </>
-                        ) : (
-                            <p>Some game data is missing.</p>
-                        )}
-                    </div>
-            </div>
+           <GameCards key={index} game={game} />
         ));
     };
 
