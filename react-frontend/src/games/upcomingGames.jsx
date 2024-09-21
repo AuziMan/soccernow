@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../css/upcomingGames.css';
 import GameCards from '../components/GameCards';
 
 function UpcomingGames() {

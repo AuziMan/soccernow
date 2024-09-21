@@ -162,12 +162,12 @@ def store_team_squads(team_id):
         print("No Squad data found")
 
 
-#league_teams = get_league_teams(255)
+league_teams = get_league_teams(2)
 
-#stored_league_teams = store_leage_teams(39)
+stored_league_teams = store_leage_teams(league_teams)
 
 
-# updateList = [65, 66]
+# updateList = [9568]
 
 
 
@@ -175,6 +175,5 @@ def store_team_squads(team_id):
 #     store_team_squads(number)
 #     print(number)
 
-# print (team_squads)
 
 

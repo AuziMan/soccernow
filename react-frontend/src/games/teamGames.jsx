@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import GameCards from '../components/GameCards';
 
 
-function GamesToday() {
+function TeamGames() {
+    const { teamId } = useParams();
     const [games, setGames] = useState([]);
     const [isLoading, setIsLoading] = useState(true); // New isLoading state
+    const [error, setError] = useState(null);
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/games-today`)
-            .then(response => response.json())
-            .then(data => {
-                console.log('Fetched Data:', data); // Log the fetched data to verify
+        const fetchTeamGames = async () => {
+            try{
+                const response = await fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/${teamId}`)
+                if (!response.ok) {
+                    throw new Error(`Error fetching squad: ${response.statusText}`);
+                }
+                const data = await response.json();
                 setGames(data);
-                setIsLoading(false)
-            })
-            .catch(error => console.error('Error fetching data:', error));
-            setIsLoading(false)
-
-    }, []);
+                setIsLoading(false);
+            } catch (error) {
+                setError(error.message);
+                setIsLoading(false);
+            }
+        };
+        fetchTeamGames();
+    }, [teamId]);
 
     const renderGames = () => {
         if(isLoading) {
             return <div>Loading...</div>
+        }
+
+        if (error) {
+            return <div>Error: {error}</div>;
         }
 
         if (!Array.isArray(games) || games.length === 0) {
@@ -31,14 +43,13 @@ function GamesToday() {
 
         return games.map((game, index) => (
             <GameCards key={index} game={game} />
-
         ));
     };
 
     return (
         <div>
             <div className="games-title">
-                <h1>Games Today!</h1>
+                <h1>Past Games for </h1>
             </div>
             <div className="center-wrapper">
                 <div className="team-games-container">
@@ -49,4 +60,4 @@ function GamesToday() {
     );
 }
 
-export default GamesToday;
+export default TeamGames;

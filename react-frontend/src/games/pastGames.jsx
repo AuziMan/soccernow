@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import GameCards from '../components/GameCards';
 
-
-function GamesToday() {
+function PastGames() {
     const [games, setGames] = useState([]);
     const [isLoading, setIsLoading] = useState(true); // New isLoading state
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/games-today`)
+        fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/past-games`)
             .then(response => response.json())
             .then(data => {
                 console.log('Fetched Data:', data); // Log the fetched data to verify
@@ -30,15 +29,14 @@ function GamesToday() {
         }
 
         return games.map((game, index) => (
-            <GameCards key={index} game={game} />
-
+           <GameCards key={index} game={game} />
         ));
     };
 
     return (
         <div>
             <div className="games-title">
-                <h1>Games Today!</h1>
+                <h1>Past Games!</h1>
             </div>
             <div className="center-wrapper">
                 <div className="team-games-container">
@@ -49,4 +47,4 @@ function GamesToday() {
     );
 }
 
-export default GamesToday;
+export default PastGames;

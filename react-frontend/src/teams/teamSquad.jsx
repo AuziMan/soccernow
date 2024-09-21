@@ -50,7 +50,7 @@ function TeamSquads() {
                                 <img
                                     src={player.phote}
                                     alt={`${player.name} logo`}
-                                    className="team-logo"
+                                    className="player-img"
                                 />
                                 <h4>{player.name}</h4>
                                 <p>Position: {player.position}</p>

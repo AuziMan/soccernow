@@ -18,6 +18,7 @@ function headerNavBar() {
             <NavDropdown.Item href="/leagues/253">MLS</NavDropdown.Item>
             <NavDropdown.Item href="/leagues/255">USL</NavDropdown.Item>
             <NavDropdown.Item href="/leagues/39">EPL</NavDropdown.Item>
+            <NavDropdown.Item href="/leagues/2">UCL</NavDropdown.Item>
           </NavDropdown>
         </Nav>
     </Navbar.Collapse>

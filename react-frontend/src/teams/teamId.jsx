@@ -17,10 +17,10 @@ function TeamId() {
                     throw new Error(`Error fetching teams: ${response.statusText}`);
                 }
                 const data = await response.json();
+                
                 // console.log(data)
-
-                const teamIds = data.map(team => team.team_id).join(', ');
-                console.log('Team IDs (Comma-Separated):', teamIds);
+                // const teamIds = data.map(team => team.team_id).join(', ');
+                // console.log('Team IDs (Comma-Separated):', teamIds);
 
                 setTeams(data)
                 setIsLoading(false);
@@ -52,21 +52,29 @@ function TeamId() {
             <h2>Teams in League</h2>
             <div className="teams-container">
                 {teams.map((team) => (
-                    <Link
-                        key={teams.team_id}
-                        to={`/teams/${team.team_id}`}
-                        className="team-card"
-                    >
+                    <div className="league-team-container">
                         <h3>{team.team_name}</h3>
-                        <h3>{team.team_id}</h3>
                         <img
-                        src={team.team_logo}
-                        alt={`${team.team_name} logo`}
-                        className="team-logo"
-                        />
-                </Link>
-                ))}
-            </div>
+                                src={team.team_logo}
+                                alt={`${team.team_name} logo`}
+                                className="team-logo"
+                            />
+                            <div className="team-button-container">
+                                <Link
+                                    key={teams.team_id}
+                                    to={`/games/${team.team_id}`}
+                                    className="team-card">
+                                <button className='team-buttons'>Past Games</button>
+                                </Link>
+                                <Link
+                                    key={teams.team_id}
+                                    to={`/teams/${team.team_id}`}
+                                    className="team-card">
+                                    <button className='team-buttons'>Squad</button>
+                                </Link>
+                            </div>
+                    </div>))}
+                </div>
             </div>
         </div>
       );

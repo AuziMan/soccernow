@@ -153,7 +153,6 @@ def get_league_fixtures(fixture_count, leage_id):
 
     
 def store_fixture_info(fixture_count, leage_id):
-
     fixture_data = get_league_fixtures(fixture_count, leage_id)
 
     if fixture_data:
@@ -177,6 +176,6 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-# mls_fixtures = store_fixture_info(20, 255)
-# print (mls_fixtures)
+team_fixtures = store_fixture_info(25, 253)
+# print (team_fixtures)
 
