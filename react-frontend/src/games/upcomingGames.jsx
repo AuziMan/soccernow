@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import GameCards from '../components/GameCards';
+import GameLists from '../components/GameLists';
+
 
 function UpcomingGames() {
     const [games, setGames] = useState([]);
@@ -28,9 +29,8 @@ function UpcomingGames() {
             return <div>No upcoming games available.</div>;
         }
 
-        return games.map((game, index) => (
-           <GameCards key={index} game={game} />
-        ));
+        return<GameLists games={games} />
+
     };
 
     return (

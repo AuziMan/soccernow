@@ -54,7 +54,7 @@ function TeamId() {
                 {teams.map((team) => (
                     <div className="league-team-container">
                         <h3>{team.team_name}</h3>
-                        <img
+                            <img
                                 src={team.team_logo}
                                 alt={`${team.team_name} logo`}
                                 className="team-logo"
@@ -64,7 +64,7 @@ function TeamId() {
                                     key={teams.team_id}
                                     to={`/games/${team.team_id}`}
                                     className="team-card">
-                                <button className='team-buttons'>Past Games</button>
+                                    <button className='team-buttons'>Past Games</button>
                                 </Link>
                                 <Link
                                     key={teams.team_id}

@@ -1,6 +1,9 @@
 .games-title {
     text-align: center;
+    font-size: x-large;
     margin-bottom: 20px;
+    margin-top: 50px;
+
 }
 
 .center-wrapper {
@@ -10,14 +13,18 @@
     flex-direction: column;
 }
 
+.league-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .team-games-container {
-    margin: 0 auto;
-    margin: 20px;
-    border-style: dashed;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 15px; /* Space between the grid items */ 
-    max-width: 95%;  
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center items vertically if they have different heights */
+    gap: 20px; /* Optional: adds space between cards */
+    padding: 20px; /* Optional: adds space around the container */
 }
 
 /* Add responsiveness for smaller screens */
@@ -27,31 +34,33 @@
     }
 }
 
-.img-score {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px 0;
-}
-
 @media (max-width: 480px) {
     .team-games-container {
         grid-template-columns: 1fr; /* 1 item per row on very small screens */
     }
 }
 
+.img-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
 .team-game-team {
     overflow: hidden; /* Prevents content from overflowing */
     padding: 20px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     border-radius: 12px;
     background-color: #ecf0f1;
     transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s; /* Slower transition, with shadow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
-    cursor: pointer; /* Make the card look clickable */
+    max-width: 300px;
+    min-width: 250px;
 }
 
 /* Hover effect */
@@ -61,12 +70,27 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.team-logo {
-    max-width: 95px;
-    height: auto;
+.game-container{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    align-items: center;
+    width: 300px;
+    /* height: fit-content; */
+}
+
+.team-logo {
+    max-width: 75px;
+    height: auto;
+    display: block;
     margin: 10px 0; /* Add spacing between logos */
+}
+
+.team-score{
+    font-size: clamp(18px, 3vw, 24px); /* Responsive font size for scores */
+    margin: 0 10px;
+    padding: 10px;
+    font-weight: bold;
 }
 
 h3, h4, p {
@@ -75,7 +99,12 @@ h3, h4, p {
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: clamp(14px, 2vw, 20px); /* Responsive font size */
+    word-wrap: break-word; /* Allows long names to break into multiple lines */
+    text-align: center; /* Centers the team name in the card */
+    max-width: 100%; /* Ensures the text fits within the card */
+    overflow: hidden; /* Hides overflow if the text is too long */
+    white-space: normal; /* Allows text to break into multiple lines */
 }
 
 h4 {
