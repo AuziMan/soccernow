@@ -34,14 +34,12 @@ function GamesToday() {
     };
 
     return (
-        <div>
+        <div className="center-wrapper">
             <div className="games-title">
                 <h1>Games Today!</h1>
             </div>
-            <div className="center-wrapper">
-                <div className="team-games-container">
+            <div className="center-wrapper">                
                     {renderGames()}
-                </div>
             </div>
         </div>
     );

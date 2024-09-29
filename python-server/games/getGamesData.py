@@ -7,9 +7,6 @@ from dotenv import load_dotenv
 import pytz
 from common.common import user_time_zone
 
-
-
-
 load_dotenv()
 
 games_blueprint = Blueprint('games', __name__)
@@ -103,7 +100,6 @@ def get_past_games():
         return jsonify({'error': 'An error occurred while fetching the games.'}), 500
 
 
-
 # Get Upcoming games from DB based on date. All games returned will be 1+ days ahead of the current day.
 @games_blueprint.route('/upcoming-games', methods=['GET'])
 def get_upcoming_games():
@@ -167,6 +163,7 @@ def get_games_today():
 
         games_today = dumps(results)
 
+        time.sleep(10)
         return games_today, 200, {'Content-Type': 'application/json'}
     
     except Exception as e:

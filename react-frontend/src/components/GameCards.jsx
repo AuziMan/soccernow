@@ -30,8 +30,10 @@ function GameCards({ game }) {
                                 )}
                             </div>                          
 
-                            <p>Date: {new Date(game.fixture_date).toLocaleString()}</p>
+                            <h3 className="game-date">Date: {new Date(game.fixture_date).toLocaleString()}</h3>
+                            <h3>{game.fixture_id}</h3>
                         </>
+
                     ) : (
                         <p>Some game data is missing.</p>
                     )}

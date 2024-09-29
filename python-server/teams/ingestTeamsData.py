@@ -4,9 +4,7 @@ from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
 
-
 load_dotenv()
-
 
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
@@ -162,9 +160,8 @@ def store_team_squads(team_id):
         print("No Squad data found")
 
 
-league_teams = get_league_teams(2)
 
-stored_league_teams = store_leage_teams(league_teams)
+stored_league_teams = store_leage_teams(2)
 
 
 # updateList = [9568]

@@ -40,15 +40,12 @@ apiKeys = {
     'x-rapidapi-key': API_KEY
     }
 
-
 ingest_blueprint = Blueprint('ingest', __name__)
-
 
 # League ID's
 copaAmericaId = 10
 mlsLeageId = 253
 ulsLeageId =  255
-
 
 @ingest_blueprint.route('/up-mls-games')
 def get_up_mls_games():
@@ -102,7 +99,7 @@ def get_league_fixtures(fixture_count, leage_id):
     # Shared API Keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={leage_id}&season=2024&last={fixture_count}"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={leage_id}&season=2024&next={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
     if response.status_code == 200:
@@ -176,6 +173,6 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-team_fixtures = store_fixture_info(25, 255)
+team_fixtures = store_fixture_info(25, 2)
 # print (team_fixtures)
 

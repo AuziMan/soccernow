@@ -8,7 +8,6 @@ load_dotenv()
 teams_blueprint = Blueprint('teams', __name__)
 league_blueprint = Blueprint('leagues', __name__)
 
-
 # MongoDB setup
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')

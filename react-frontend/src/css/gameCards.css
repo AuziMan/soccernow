@@ -3,7 +3,8 @@
     font-size: x-large;
     margin-bottom: 20px;
     margin-top: 50px;
-
+    max-width: 70%;
+    border-radius: 12px;
 }
 
 .center-wrapper {
@@ -23,8 +24,8 @@
     flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
     justify-content: center; /* Center the cards horizontally */
     align-items: center; /* Center items vertically if they have different heights */
-    gap: 20px; /* Optional: adds space between cards */
-    padding: 20px; /* Optional: adds space around the container */
+    gap: 40px; /*  adds space between cards */
+    padding: 20px; /*  adds space around the container */
 }
 
 /* Add responsiveness for smaller screens */
@@ -56,16 +57,19 @@
     flex-direction: column;
     align-items: center;
     border-radius: 12px;
-    background-color: #ecf0f1;
     transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s; /* Slower transition, with shadow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
     max-width: 300px;
     min-width: 250px;
+    height: 500px;
+    border-style: dashed;
+    border-bottom: #2c3e50;
+    border: #2c3e50;
 }
 
 /* Hover effect */
 .team-game-team:hover {
-    background-color: #2980b9; /* Darker blue background */
+    background-color: #dbe0e2; /* Darker blue background */
     transform: scale(1.03); /* Slightly larger scale on hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
@@ -76,14 +80,14 @@
     align-items: center;
     align-items: center;
     width: 300px;
-    /* height: fit-content; */
+    height: 100%;
 }
 
 .team-logo {
     max-width: 75px;
     height: auto;
     display: block;
-    margin: 10px 0; /* Add spacing between logos */
+    margin: 5px 0; /* Add spacing between logos */
 }
 
 .team-score{
@@ -91,6 +95,10 @@
     margin: 0 10px;
     padding: 10px;
     font-weight: bold;
+}
+
+.game-date{
+    margin-top: auto;
 }
 
 h3, h4, p {

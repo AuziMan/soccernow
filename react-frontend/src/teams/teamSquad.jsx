@@ -16,7 +16,12 @@ function TeamSquads() {
                     throw new Error(`Error fetching squad: ${response.statusText}`);
                 }
                 const data = await response.json();
-                setTeam(data); // Set the entire team object
+
+                if (!data || data.length === 0) {
+                    setError('No squad data available.');
+                } else {
+                    setTeam(data);
+                }
                 setIsLoading(false);
             } catch (error) {
                 setError(error.message);
@@ -32,7 +37,11 @@ function TeamSquads() {
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return (
+            <div className="center-wrapper">
+                <div>{error}</div>
+            </div>
+        );
     }
 
     return (

@@ -35,14 +35,12 @@ function PastGames() {
     };
 
     return (
-        <div>
+        <div className="center-wrapper">
             <div className="games-title">
                 <h1>Past Games!</h1>
             </div>
             <div className="center-wrapper">
-                <div className="team-games-container">
                     {renderGames()}
-                </div>
             </div>
         </div>
     );
