@@ -6,21 +6,14 @@ from datetime import datetime, date, time, timedelta
 from dotenv import load_dotenv
 import pytz
 from common.common import user_time_zone
+from common.db import start_db_connection
 
 load_dotenv()
 
 games_blueprint = Blueprint('games', __name__)
 
-# MongoDB setup
-MONGO_USERNAME = os.getenv('MONGO-USERNAME')
-MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
-MONGO_CLUSTER = os.getenv('MONGO-CLUSTER')
-
-mongo_uri = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_CLUSTER}/soccernow?retryWrites=true&w=majority"
-client = MongoClient(mongo_uri)
-db = client.soccernow
-
-games_collection = db.games
+#  create mongo db connection
+games_collection = start_db_connection()
 
 @games_blueprint.route('/', methods=['GET'])
 def get_all_games():
