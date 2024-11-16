@@ -122,7 +122,7 @@ def store_fixture_data(fixture_to_store):
 def get_up_games(fixture_count, legue_id):
     # Shared api keys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={legue_id}&season=2024&next={fixture_count}"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={legue_id}&season=2024&last={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
     if response.status_code == 200:
@@ -147,5 +147,10 @@ def get_up_games(fixture_count, legue_id):
         print(f"Failed to fetch data. Status code: {response.status_code}")
         return None
 
-get_up_games(2, 39)
+
+list_of_leagues = [253, 255, 39]
+
+for x in list_of_leagues:
+    print(x)
+    get_up_games(10, x)
 

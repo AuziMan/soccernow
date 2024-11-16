@@ -62,7 +62,7 @@ def get_past_games():
 
         #set current Dates
         current_date = datetime.now(pytz.utc) + timedelta(days=1) - timedelta(days=1)
-        three_days_behind = current_date - timedelta(days=3)
+        three_days_behind = current_date - timedelta(days=7)
 
         #function to format dates to match stored format
         def formatDateTimes(inputDate):
