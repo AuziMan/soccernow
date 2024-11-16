@@ -5,6 +5,9 @@
     margin-top: 50px;
     max-width: 70%;
     border-radius: 12px;
+    font-size: 3rem;
+
+
 }
 
 .center-wrapper {
@@ -110,6 +113,9 @@ h3, h4, p {
 
 .league-name {
     font-size: 3rem;
+    background-color: #dbe0e2;
+    border-radius: 12px;
+
 }
 
 h3 {

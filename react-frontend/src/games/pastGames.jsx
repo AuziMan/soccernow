@@ -27,7 +27,7 @@ function PastGames() {
         }
 
         if (!Array.isArray(games) || games.length === 0) {
-            return <div>No upcoming games available.</div>;
+            return <div>No Past games available.</div>;
         }
 
         return<GameLists games={games} />
