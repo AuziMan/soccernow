@@ -173,6 +173,13 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-team_fixtures = store_fixture_info(25, 2)
+team_fixtures = store_fixture_info(20, 39)
 # print (team_fixtures)
+
+
+# # League ID's
+# copaAmericaId = 10
+# mlsLeageId = 253
+# ulsLeageId =  255
+# epl = 39
 

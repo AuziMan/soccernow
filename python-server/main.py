@@ -23,3 +23,7 @@ app.register_blueprint(time_zone_blueprint, url_prefix='/time-zone')
 if __name__ == '__main__':
     app.run(port=5000)  # Start the Flask server on port 5000
 
+# lsof -i :5000
+# kill -9 <PID>
+
+

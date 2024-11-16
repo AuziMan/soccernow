@@ -100,7 +100,7 @@ def get_upcoming_games():
 
         #set current Dates
         current_date = datetime.now(pytz.utc) + timedelta(days=1)
-        two_weeks_ahead = current_date + timedelta(weeks=1)
+        two_weeks_ahead = current_date + timedelta(weeks=2)
 
         #function to format dates to match stored format
         def formatDateTimes(inputDate):
@@ -156,7 +156,6 @@ def get_games_today():
 
         games_today = dumps(results)
 
-        time.sleep(10)
         return games_today, 200, {'Content-Type': 'application/json'}
     
     except Exception as e:

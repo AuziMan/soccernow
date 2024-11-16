@@ -17,6 +17,8 @@
 .league-container {
     text-align: center;
     margin-bottom: 20px;
+    min-width: 80%;
+    max-width: 60%;
 }
 
 .team-games-container {
@@ -62,7 +64,6 @@
     max-width: 300px;
     min-width: 250px;
     height: 500px;
-    border-style: dashed;
     border-bottom: #2c3e50;
     border: #2c3e50;
 }
@@ -104,6 +105,11 @@
 h3, h4, p {
     margin: 5px 0;
     color: #2c3e50; /* Text color */
+}
+
+
+.league-name {
+    font-size: 3rem;
 }
 
 h3 {

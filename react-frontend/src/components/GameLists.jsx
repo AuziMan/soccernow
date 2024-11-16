@@ -22,7 +22,7 @@ function GameLists({ games }) {
         <div className="center-wrapper">
             {Object.keys(groupedGames).map(league => (
                 <div className="league-container" key={league}>
-                    <h2>{league}</h2>
+                    <h2 className="league-name">{league}</h2>
                     <div className="team-games-container">
                         {groupedGames[league].map(game => (
                             <GameCards key={game.id} game={game} />
