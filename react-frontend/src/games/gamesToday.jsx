@@ -27,7 +27,9 @@ function GamesToday() {
         }
 
         if (!Array.isArray(games) || games.length === 0) {
-            return <div>No upcoming games available.</div>;
+            return <div>
+            <h2>No upcoming games available.</h2>;
+        </div>
         }
 
         return<GameLists games={games} />

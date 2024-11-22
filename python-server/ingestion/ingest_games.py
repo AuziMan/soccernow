@@ -105,6 +105,8 @@ def validate_document(document):
         return False
     return True
 
+
+# Store fixtures in mongo
 def store_fixture_data(fixture_to_store):
     for fixture_info in fixture_to_store:
         result = games_collection.update_one(

@@ -31,7 +31,7 @@ function GameCards({ game }) {
                             </div>                          
 
                             <h3 className="game-date">Date: {new Date(game.fixture_date).toLocaleString()}</h3>
-                            <h3>{game.fixture_id}</h3>
+                            {/* <h3>{game.fixture_id}</h3> */}
                         </>
 
                     ) : (
