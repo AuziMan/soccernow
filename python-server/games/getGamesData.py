@@ -15,6 +15,7 @@ games_blueprint = Blueprint('games', __name__)
 #  create mongo db connection
 games_collection = start_db_connection()
 
+
 @games_blueprint.route('/', methods=['GET'])
 def get_all_games():
     try:
@@ -23,7 +24,6 @@ def get_all_games():
         
         # Convert MongoDB documents to JSON-serializable format
         all_games_json = dumps(all_games)
-        
         return all_games_json, 200, {'Content-Type': 'application/json'}
 
     except Exception as e:

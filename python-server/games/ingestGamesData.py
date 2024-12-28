@@ -102,6 +102,7 @@ def get_league_fixtures(fixture_count, leage_id):
     endpoint = f"https://v3.football.api-sports.io/fixtures/?league={leage_id}&season=2024&next={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
+    
     if response.status_code == 200:
         data = response.json()
 
@@ -173,7 +174,7 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-team_fixtures = store_fixture_info(20, 39)
+# team_fixtures = store_fixture_info(20, 39)
 # print (team_fixtures)
 
 

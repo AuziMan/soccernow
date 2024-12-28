@@ -21,6 +21,7 @@ def start_db_connection():
     
     # Return the collection you need
     games_collection = db['games']
+    teams_collection =db['teams']
     
     return games_collection
 

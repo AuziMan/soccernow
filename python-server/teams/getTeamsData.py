@@ -19,6 +19,8 @@ db = client.soccernow
 
 teams_collection = db.teams
 
+
+
 @teams_blueprint.route('/teams', methods=['GET'])
 def get_all_games():
     teams = teams_collection.find()
@@ -62,6 +64,7 @@ def get_league_id(league_id):
                 'team_id': team.get('team_id'),
                 'team_name': team.get('team_name'),
                 'team_logo': team.get('team_logo'),
+                'team_code': team.get('team_code'),
                 'team_squad': team.get('squad')
             })
         return jsonify(result)

@@ -1,4 +1,5 @@
 
+from flask import jsonify
 import requests
 import os
 from dotenv import load_dotenv
@@ -26,6 +27,7 @@ try:
     client = MongoClient(mongo_uri)
     db = client['soccernow']
     games_collection = db['games']
+    teams_collection = db['teams']
     print("Successfully connected to MongoDB")
 except Exception as e:
     print(f"Error connecting to MongoDB: {e}")
@@ -46,6 +48,21 @@ def return_response(response):
         return (noResponse)
     else:
         return response
+    
+def get_game_id(home_team_id, away_team_id):
+    try: 
+        home_team_id = teams_collection.find_one({'team_id': home_team_id})
+        away_team_id = teams_collection.find_one({'team_id': away_team_id})
+    
+        game_id = f'home_team_id + '-' + away_team_id '
+        return game_id
+
+    except ValueError:
+        # Handle invalid team_id (non-integer) input
+        return jsonify({'error': 'Invalid team_id. It must be an integer.'}), 400
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return jsonify({'error': 'An error occurred while fetching the games.'}), 500
     
 
 def format_api_response(data):
@@ -71,8 +88,10 @@ def format_api_response(data):
         fixture_teams = item.get('teams', []) 
         fixture_goals= item.get('goals', [])
         fixture_score = item.get('score', [])
-        
 
+        # fixture_home_team = fixture_teams.get()
+
+        # game_id = get_game_id()
 
         fixtures.append ({
             'fixture_id': fixture_id,
@@ -124,12 +143,14 @@ def store_fixture_data(fixture_to_store):
 def get_up_games(fixture_count, legue_id):
     # Shared api keys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={legue_id}&season=2024&last={fixture_count}"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={legue_id}&season=2024&next={fixture_count}"
+    # endpoint = f'http://127.0.0.1:4000/games/past-games'
     response = requests.get(endpoint, headers=apiKeys)
 
-    if response.status_code == 200:
+    data = response.json()
 
-        data = response.json()
+
+    if response.status_code == 200 and data['results'] > 0:
 
         formatted_fixtures = format_api_response(data)
 
@@ -153,6 +174,6 @@ def get_up_games(fixture_count, legue_id):
 list_of_leagues = [253, 255, 39]
 
 for x in list_of_leagues:
-    print(x)
+    # print(x)
     get_up_games(10, x)
 

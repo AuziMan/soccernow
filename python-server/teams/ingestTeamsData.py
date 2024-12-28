@@ -43,13 +43,15 @@ def get_league_teams(league_id):
             team_id = team_info.get('id')
             team_name = team_info.get('name')
             team_logo = team_info.get('logo')
+            team_code = team_info.get('code')
 
             if team_id and team_name:
                 teams.append({
                     'team_id': team_id,
                     'team_name': team_name,
                     'league_id': league_id,
-                    'team_logo': team_logo
+                    'team_logo': team_logo,
+                    'team_code': team_code
                 })
         print(teams)
         print("Extracted Team data:")
@@ -115,6 +117,7 @@ def store_leage_teams(team_id):
                 'team_id': team['team_id'],
                 'team_name': team['team_name'],
                 'league_id': team['league_id'],
+                'team_code': team['team_code'],
                 'team_logo': team['team_logo']
             }
 
@@ -161,7 +164,7 @@ def store_team_squads(team_id):
 
 
 
-stored_league_teams = store_leage_teams(2)
+stored_league_teams = store_leage_teams(253)
 
 
 # updateList = [9568]
