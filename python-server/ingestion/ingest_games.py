@@ -1,4 +1,5 @@
 
+from datetime import datetime
 from flask import jsonify
 import requests
 import os
@@ -6,6 +7,8 @@ from dotenv import load_dotenv
 import json
 from jsonschema import validate, ValidationError
 from pymongo import MongoClient
+from bson.json_util import dumps
+
 
 
 load_dotenv()
@@ -49,14 +52,36 @@ def return_response(response):
     else:
         return response
     
-def get_game_id(home_team_id, away_team_id):
-    try: 
-        home_team_id = teams_collection.find_one({'team_id': home_team_id})
-        away_team_id = teams_collection.find_one({'team_id': away_team_id})
-    
-        game_id = f'home_team_id + '-' + away_team_id '
-        return game_id
+def get_game_id(home_team_id, away_team_id, fixture_date):
+    try:
 
+        query = {
+            '$or': [
+                {'team_id': home_team_id},
+                {'team_id': away_team_id}
+            ]
+        }
+
+        result = list(teams_collection.find(query))
+
+        home_team_code = None
+        away_team_code = None
+
+        for team in result:
+            if team['team_id'] == home_team_id:
+                home_team_code = team.get('team_code')
+            elif team['team_id'] == away_team_id:
+                away_team_code = team.get('team_code')
+
+        # Check if both team codes were found
+        if home_team_code is None or away_team_code is None:
+            raise ValueError("Could not find codes for both teams.")
+        
+        game_id = f"{home_team_code}-{away_team_code}-{fixture_date}"
+
+        print (game_id)
+        
+        return game_id
     except ValueError:
         # Handle invalid team_id (non-integer) input
         return jsonify({'error': 'Invalid team_id. It must be an integer.'}), 400
@@ -126,11 +151,13 @@ def validate_document(document):
 
 
 # Store fixtures in mongo
-def store_fixture_data(fixture_to_store):
-    for fixture_info in fixture_to_store:
+def store_fixture_data(fixtures):
+    for fixture in fixtures:
+        game_id = fixture.get("game_id")
+        fixture.pop("_id", None)
         result = games_collection.update_one(
-            {'fixture_id': fixture_info['fixture_id']},
-            {'$set': fixture_info},
+            {"game_id": game_id},
+            {'$set': fixture},
             upsert=True
         )
 
@@ -140,15 +167,15 @@ def store_fixture_data(fixture_to_store):
         print(f"Updated existing document with id {result.upserted_id}")
 
 
-def get_up_games(fixture_count, legue_id):
+# def get_up_games(fixture_count, legue_id):
+def get_up_games(fixture_count, league_id):
+
     # Shared api keys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={legue_id}&season=2024&next={fixture_count}"
-    # endpoint = f'http://127.0.0.1:4000/games/past-games'
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={league_id}&season=2024&next={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
-
 
     if response.status_code == 200 and data['results'] > 0:
 
@@ -159,6 +186,19 @@ def get_up_games(fixture_count, legue_id):
         for fixture in formatted_fixtures:
             if validate_document(fixture):
                 # print(type(fixture))
+                fixture_home_id = fixture["fixture_teams"]["home"]["id"]
+                fixture_away_id = fixture["fixture_teams"]["away"]["id"]
+                fixture_date = fixture["fixture_date"]
+
+                # Parse the string into a datetime object
+                dt_object = datetime.fromisoformat(fixture_date)
+                formatted_date_str = dt_object.strftime("%Y-%m-%d")
+
+
+                game_id = get_game_id(fixture_home_id, fixture_away_id, formatted_date_str)
+
+                fixture["game_id"] = game_id
+
                 fixtures_to_ingest.append(fixture)
                 print(fixtures_to_ingest)
             else:
@@ -174,6 +214,8 @@ def get_up_games(fixture_count, legue_id):
 list_of_leagues = [253, 255, 39]
 
 for x in list_of_leagues:
-    # print(x)
+    print(x)
     get_up_games(10, x)
+
+
 
