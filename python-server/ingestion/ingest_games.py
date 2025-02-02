@@ -8,22 +8,18 @@ import json
 from jsonschema import validate, ValidationError
 from pymongo import MongoClient
 from bson.json_util import dumps
+import sys
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
+from utils.validation import format_api_response
 
 load_dotenv()
-
 
 API_KEY = os.getenv('API-KEY')
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
 MONGO_CLUSTER = os.getenv('MONGO-CLUSTER')
-
-
-copaAmericaId = 10
-mlsLeageId = 253
-ulsLeageId =  255
-epl = 39
 
 mongo_uri = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_CLUSTER}/soccernow?retryWrites=true&w=majority"
 try:
@@ -59,7 +55,7 @@ def get_game_id(home_team_id, away_team_id, fixture_date):
             '$or': [
                 {'team_id': home_team_id},
                 {'team_id': away_team_id}
-            ]
+            ] 
         }
 
         result = list(teams_collection.find(query))
@@ -82,57 +78,13 @@ def get_game_id(home_team_id, away_team_id, fixture_date):
         print (game_id)
         
         return game_id
-    except ValueError:
+    except ValueError as ve:
         # Handle invalid team_id (non-integer) input
-        return jsonify({'error': 'Invalid team_id. It must be an integer.'}), 400
+        print(f"Invalid team_id error: {ve}")
+        return None
     except Exception as e:
         print(f"An error occurred: {e}")
-        return jsonify({'error': 'An error occurred while fetching the games.'}), 500
-    
-
-def format_api_response(data):
-
-    fixtures = [];
-
-    for item in data.get('response', []):
-        fixture_info = item.get('fixture', {})
-        fixture_id = fixture_info.get('id')
-        fixture_date = fixture_info.get('date')
-        fixture_referee = fixture_info.get('referee')
-
-        fixture_venue_info = fixture_info.get('venue', {})
-        fixture_venue_name = fixture_venue_info.get('name')
-        fixture_venue_city = fixture_venue_info.get('city')
-
-        fixture_status_info = item.get('status', {}) 
-        fixture_status = fixture_status_info.get('long')
-        fixture_time_elapsed = fixture_status_info.get('elapsed')
-
-        fixture_league_info = item.get('league', {})
-
-        fixture_teams = item.get('teams', []) 
-        fixture_goals= item.get('goals', [])
-        fixture_score = item.get('score', [])
-
-        # fixture_home_team = fixture_teams.get()
-
-        # game_id = get_game_id()
-
-        fixtures.append ({
-            'fixture_id': fixture_id,
-            'fixture_date': fixture_date,
-            'fixture_referee': fixture_referee,
-            'fixture_venue_name': fixture_venue_name,
-            'fixture_venue_city': fixture_venue_city,
-            'fixture_status': fixture_status,
-            'fixture_time_elapsed': fixture_time_elapsed,
-            'fixture_league_info': fixture_league_info,
-            'fixture_teams': fixture_teams,
-            'fixture_goals': fixture_goals,
-            'fixture_score': fixture_score
-        })
-
-    return fixtures
+        return None
 
 # Open schema file
 with open(os.path.join(os.path.dirname(__file__),'game-schema.json'), 'r') as schema_file:
@@ -172,7 +124,7 @@ def get_up_games(fixture_count, league_id):
 
     # Shared api keys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={league_id}&season=2024&next={fixture_count}"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={league_id}&season=2024&last={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
