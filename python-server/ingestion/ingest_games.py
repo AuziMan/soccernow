@@ -121,20 +121,13 @@ def store_fixture_data(fixtures):
 
 # def get_up_games(fixture_count, legue_id):
 def get_up_games(fixture_count, league_id):
-
     # Shared api keys
-
     endpoint = f"https://v3.football.api-sports.io/fixtures/?league={league_id}&season=2024&last={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
-
     data = response.json()
-
     if response.status_code == 200 and data['results'] > 0:
-
         formatted_fixtures = format_api_response(data)
-
         fixtures_to_ingest = []
-
         for fixture in formatted_fixtures:
             if validate_document(fixture):
                 # print(type(fixture))

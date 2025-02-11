@@ -28,7 +28,7 @@ function GamesToday() {
 
         if (!Array.isArray(games) || games.length === 0) {
             return <div>
-            <h2>No upcoming games available.</h2>;
+            <h2>No upcoming games today.</h2>
         </div>
         }
 
