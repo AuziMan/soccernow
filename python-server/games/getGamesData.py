@@ -27,7 +27,7 @@ def get_all_games():
         return all_games_json, 200, {'Content-Type': 'application/json'}
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"An error occurred womp womp: {e}")
         return jsonify({'error': 'An error occurred while fetching the games.'}), 500
 
 
