@@ -9,6 +9,10 @@
     font-size: 3rem;
 }
 
+
+.no-games {
+    border-style: dashed;
+}
 .center-wrapper {
     display: flex;
     justify-content: center;

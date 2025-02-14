@@ -52,7 +52,9 @@ function TeamGames() {
         }
 
         if (!Array.isArray(games) || games.length === 0) {
-            return <div>No upcoming team game.</div>
+            return <div className="no-games">
+            <h2>No games</h2>
+        </div>
         }
 
         return games.map((game, index) => (

@@ -11,7 +11,6 @@ function UpcomingGames() {
         fetch(`${process.env.REACT_APP_SOCCER_API_ROOT}/games/upcoming-games`)
             .then(response => response.json())
             .then(data => {
-                console.log('Fetched Data:', data); // Log the fetched data to verify
                 setGames(data);
                 setIsLoading(false)
             })
@@ -26,9 +25,9 @@ function UpcomingGames() {
         }
 
         if (!Array.isArray(games) || games.length === 0) {
-            return <div>
-                <h2>No upcoming games HAHAH.</h2>
-            </div>
+            return <div className="no-games">
+            <h2>No upcoming games today.</h2>
+        </div>
         }
 
         return<GameLists games={games} />

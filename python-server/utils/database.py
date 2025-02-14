@@ -2,8 +2,6 @@ import os
 from flask import jsonify
 from pymongo import MongoClient
 
-
-
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
 MONGO_CLUSTER = os.getenv('MONGO-CLUSTER')
