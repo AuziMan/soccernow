@@ -10,7 +10,8 @@
 - league standings
 
 ### Soccer now has you covered.
+### SoccerNow displays soccer info in a easy to follow format using React for a seamless UI.
 
-# SoccerNow displays soccer info in a easy to follow format.
+---
 
 
