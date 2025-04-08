@@ -40,22 +40,19 @@ apiKeys = {
     'x-rapidapi-key': API_KEY
     }
 
-
 ingest_blueprint = Blueprint('ingest', __name__)
-
 
 # League ID's
 copaAmericaId = 10
 mlsLeageId = 253
 ulsLeageId =  255
 
-
 @ingest_blueprint.route('/up-mls-games')
 def get_up_mls_games():
     # Shared api keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2024&next=10"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2025&next=10"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
@@ -67,7 +64,7 @@ def get_prev_mls_games():
     # Shared api keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2024&last=5"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={mlsLeageId}&season=2025&last=5"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
@@ -80,7 +77,7 @@ def get_all_live_games():
     # Shared api keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?&season=2024&live=all"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?&season=2025&live=all"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
@@ -92,7 +89,7 @@ def get_live_mls_games():
     # Shared api keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league=253&season=2024&live=all"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league=253&season=2025&live=all"
     response = requests.get(endpoint, headers=apiKeys)
 
     data = response.json()
@@ -102,9 +99,10 @@ def get_league_fixtures(fixture_count, leage_id):
     # Shared API Keys
     apiKeys
 
-    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={leage_id}&season=2024&next={fixture_count}"
+    endpoint = f"https://v3.football.api-sports.io/fixtures/?league={leage_id}&season=2025&next={fixture_count}"
     response = requests.get(endpoint, headers=apiKeys)
 
+    
     if response.status_code == 200:
         data = response.json()
 
@@ -153,7 +151,6 @@ def get_league_fixtures(fixture_count, leage_id):
 
     
 def store_fixture_info(fixture_count, leage_id):
-
     fixture_data = get_league_fixtures(fixture_count, leage_id)
 
     if fixture_data:
@@ -177,6 +174,13 @@ def store_fixture_info(fixture_count, leage_id):
         print("No Squad data found")
 
 
-# mls_fixtures = store_fixture_info(20, 255)
-# print (mls_fixtures)
+# team_fixtures = store_fixture_info(20, 39)
+# print (team_fixtures)
+
+
+# # League ID's
+# copaAmericaId = 10
+# mlsLeageId = 253
+# ulsLeageId =  255
+# epl = 39
 

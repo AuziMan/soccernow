@@ -8,7 +8,6 @@ load_dotenv()
 teams_blueprint = Blueprint('teams', __name__)
 league_blueprint = Blueprint('leagues', __name__)
 
-
 # MongoDB setup
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
@@ -19,6 +18,8 @@ client = MongoClient(mongo_uri)
 db = client.soccernow
 
 teams_collection = db.teams
+
+
 
 @teams_blueprint.route('/teams', methods=['GET'])
 def get_all_games():
@@ -63,6 +64,7 @@ def get_league_id(league_id):
                 'team_id': team.get('team_id'),
                 'team_name': team.get('team_name'),
                 'team_logo': team.get('team_logo'),
+                'team_code': team.get('team_code'),
                 'team_squad': team.get('squad')
             })
         return jsonify(result)
