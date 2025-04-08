@@ -27,7 +27,7 @@ function GamesToday() {
 
         if (!Array.isArray(games) || games.length === 0) {
             return <div className="no-games">
-                <h2>No games today</h2>
+                <h3>No games today</h3>
             </div>
         }
 
