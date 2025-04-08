@@ -2,11 +2,15 @@
 
 ## The 'goal' (haha get it?) of SoccerNow is to provide simple, accurare soccer information from a variaty of leagues. 
 
-## Whether its:
+### Whether its:
 - game times
 - game scores
 - team squads
 - game officials
 - league standings
 
-## Soccer now has you covered
+### Soccer now has you covered.
+
+# SoccerNow displays soccer info in a easy to follow format.
+
+
