@@ -15,4 +15,4 @@
 ---
 
 
-![past-games](/readme-imgs/past-games.png)
+![past-games](/readme-imgs/past-games.jpg)
