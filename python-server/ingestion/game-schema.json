@@ -1,0 +1,212 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "fixture_id": {
+        "type": "integer"
+      },
+      "fixture_date": {
+        "type": "string"
+      },
+      "fixture_goals": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "type": ["integer", "null"]
+          },
+          "away": {
+            "type": ["integer", "null"]
+          }
+        },
+        "required": [
+          "home",
+          "away"
+        ]
+      },
+      "fixture_league_info": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "logo": {
+            "type": "string"
+          },
+          "flag": {
+            "type": ["string", "null"]
+          },
+          "season": {
+            "type": "integer"
+          },
+          "round": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "country",
+          "logo",
+          "flag",
+          "season",
+          "round"
+        ]
+      },
+      "fixture_referee": {
+        "type": ["string", "null"]
+      },
+      "fixture_score": {
+        "type": "object",
+        "properties": {
+          "halftime": {
+            "type": "object",
+            "properties": {
+              "home": {
+                "type": ["integer", "null"]
+              },
+              "away": {
+                "type": ["integer", "null"]
+              }
+            },
+            "required": [
+              "home",
+              "away"
+            ]
+          },
+          "fulltime": {
+            "type": "object",
+            "properties": {
+              "home": {
+                "type": ["integer", "null"]
+              },
+              "away": {
+                "type": ["integer", "null"]
+              }
+            },
+            "required": [
+              "home",
+              "away"
+            ]
+          },
+          "extratime": {
+            "type": "object",
+            "properties": {
+              "home": {
+                "type": ["integer", "null"]
+              },
+              "away": {
+                "type": ["integer", "null"]
+              }
+            },
+            "required": [
+              "home",
+              "away"
+            ]
+          },
+          "penalty": {
+            "type": "object",
+            "properties": {
+              "home": {
+                "type": ["integer", "null"]
+              },
+              "away": {
+                "type": ["integer", "null"]
+              }
+            },
+            "required": [
+              "home",
+              "away"
+            ]
+          }
+        },
+        "required": [
+          "halftime",
+          "fulltime",
+          "extratime",
+          "penalty"
+        ]
+      },
+      "fixture_status": {
+        "type": ["string", "null"]
+      },
+      "fixture_teams": {
+        "type": "object",
+        "properties": {
+          "home": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "winner": {
+                "type": ["boolean", "null"]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "logo",
+              "winner"
+            ]
+          },
+          "away": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              },
+              "logo": {
+                "type": "string"
+              },
+              "winner": {
+                "type": ["boolean", "null"]
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "logo",
+              "winner"
+            ]
+          }
+        },
+        "required": [
+          "home",
+          "away"
+        ]
+      },
+      "fixture_venue_city": {
+        "type": "string"
+      },
+      "fixture_venue_name": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "fixture_id",
+      "fixture_date",
+      "fixture_goals",
+      "fixture_league_info",
+      "fixture_referee",
+      "fixture_score",
+      "fixture_status",
+      "fixture_teams",
+      "fixture_venue_city",
+      "fixture_venue_name"
+    ]
+  }

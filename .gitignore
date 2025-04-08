@@ -8,6 +8,8 @@ lerna-debug.log*
 .pnpm-debug.log*
 .pyc
 
+*.sh
+
 # Ignore all __pycache__ directories in the entire project
 **/__pycache__/
 

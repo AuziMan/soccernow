@@ -1,1 +1,1 @@
-# SoccerNow - Your place for quick, easy, accurate soccer information
+# SoccerNow - Your place for quick soccer information

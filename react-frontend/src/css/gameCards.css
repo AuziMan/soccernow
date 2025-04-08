@@ -1,0 +1,142 @@
+.games-title {
+    text-align: center;
+    display: contents;
+    font-size: x-large;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    max-width: 70%;
+    border-radius: 12px;
+    font-size: 3rem;
+}
+
+
+.no-games {
+    border-style: dashed;
+}
+
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.league-container {
+    text-align: center;
+    margin-bottom: 20px;
+    min-width: 80%;
+    max-width: 60%;
+}
+
+.team-games-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    justify-content: center; /* Center the cards horizontally */
+    align-items: center; /* Center items vertically if they have different heights */
+    gap: 40px; /*  adds space between cards */
+    padding: 20px; /*  adds space around the container */
+}
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .team-games-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .team-games-container {
+        grid-template-columns: 1fr; /* 1 item per row on very small screens */
+    }
+}
+
+.img-score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.team-game-team {
+    overflow: hidden; /* Prevents content from overflowing */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s; /* Slower transition, with shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+    max-width: 300px;
+    min-width: 250px;
+    height: 500px;
+    border-bottom: #2c3e50;
+    border: #2c3e50;
+}
+
+/* Hover effect */
+.team-game-team:hover {
+    background-color: #dbe0e2; /* Darker blue background */
+    transform: scale(1.03); /* Slightly larger scale on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.game-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    width: 300px;
+    height: 100%;
+}
+
+.team-logo {
+    max-width: 95px;
+    height: auto;
+    display: block;
+    margin: 5px 0; /* Add spacing between logos */
+}
+
+.team-score{
+    font-size: clamp(18px, 3vw, 24px); /* Responsive font size for scores */
+    margin: 0 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.game-date{
+    margin-top: auto;
+}
+
+h3, h4, p {
+    margin: 5px 0;
+    color: #2c3e50; /* Text color */
+}
+
+
+.league-name {
+    font-size: 3rem;
+    background-color: #dbe0e2;
+    border-radius: 12px;
+
+}
+
+h3 {
+    font-size: clamp(18px, 2vw, 20px); /* Responsive font size */
+    word-wrap: break-word; /* Allows long names to break into multiple lines */
+    text-align: center; /* Centers the team name in the card */
+    max-width: 100%; /* Ensures the text fits within the card */
+    font-family: 'Anton';
+    overflow: hidden; /* Hides overflow if the text is too long */
+    white-space: normal; /* Allows text to break into multiple lines */
+}
+
+h4 {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+p {
+    font-size: 0.9rem;
+}

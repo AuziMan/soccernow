@@ -1,0 +1,26 @@
+.App {
+  text-align: center;
+}
+
+:root {
+  --main-font: 'Poppins', sans-serif;
+  --heading-font: 'Fantasy', Copperplate;
+  --paragraph-font: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--main-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-family: var(--paragraph-font);
+}
+

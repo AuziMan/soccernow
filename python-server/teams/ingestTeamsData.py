@@ -4,9 +4,7 @@ from dotenv import load_dotenv
 import os
 from pymongo import MongoClient
 
-
 load_dotenv()
-
 
 MONGO_USERNAME = os.getenv('MONGO-USERNAME')
 MONGO_PASSWORD = os.getenv('MONGO-PASSWORD')
@@ -45,13 +43,15 @@ def get_league_teams(league_id):
             team_id = team_info.get('id')
             team_name = team_info.get('name')
             team_logo = team_info.get('logo')
+            team_code = team_info.get('code')
 
             if team_id and team_name:
                 teams.append({
                     'team_id': team_id,
                     'team_name': team_name,
                     'league_id': league_id,
-                    'team_logo': team_logo
+                    'team_logo': team_logo,
+                    'team_code': team_code
                 })
         print(teams)
         print("Extracted Team data:")
@@ -87,14 +87,16 @@ def get_team_squads(team_id):
                 player_id = player.get('id')
                 player_name = player.get('name')
                 player_number = player.get('number')
-                player_position = player.get('position')
+                player_position = player.get('position'),
+                player_photo = player.get('photo')
 
                 if player_id and player_name:
                     squad.append({
                         'id': player_id,
                         'name': player_name,
                         'number': player_number,
-                        'position': player_position
+                        'position': player_position,
+                        'phote': player_photo
                     })
         return {
             'team_id': team_id,
@@ -115,6 +117,7 @@ def store_leage_teams(team_id):
                 'team_id': team['team_id'],
                 'team_name': team['team_name'],
                 'league_id': team['league_id'],
+                'team_code': team['team_code'],
                 'team_logo': team['team_logo']
             }
 
@@ -160,11 +163,17 @@ def store_team_squads(team_id):
         print("No Squad data found")
 
 
-#league_teams = get_league_teams(255)
 
-#stored_league_teams = store_leage_teams(39)
+stored_league_teams = store_leage_teams(253)
 
-team_squads = store_team_squads(3996)
-print (team_squads)
+
+# updateList = [9568]
+
+
+
+# for number in updateList:
+#     store_team_squads(number)
+#     print(number)
+
 
 

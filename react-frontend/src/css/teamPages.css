@@ -1,0 +1,109 @@
+.teams-container {
+    margin: 0 auto;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 15px; /* Space between the grid items */ 
+    max-width: 95%;  
+    padding: 20px; /*  adds space around the container */
+    gap: 20px;
+}
+
+.team-card{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+}
+
+
+
+
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.team-container{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    transition: background-color 0.6s, transform 0.6s; /* Slower transition */
+}
+
+.league-team-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.6s, transform 0.6s, box-shadow 0.6s; /* Slower transition, with shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+    padding: 10px;
+    border-radius: 12px;
+
+}
+
+.league-team-container:hover {
+  background-color: #dbe0e2; /* Darker blue background */
+  transform: scale(1.03); /* Slightly larger scale on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.team-button-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* CSS */
+.team-buttons {
+  align-items: center;
+  background-color: #0A66C2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  margin-bottom: 10px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.team-buttons:hover,
+.team-buttons:focus { 
+  background-color: #16437E;
+  color: #ffffff;
+}
+
+.team-buttons:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, .7);
+}
+
+.team-buttons:disabled { 
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, .08);
+  color: rgba(0, 0, 0, .3);
+}
