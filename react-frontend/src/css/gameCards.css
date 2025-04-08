@@ -13,6 +13,8 @@
 .no-games {
     border-style: dashed;
 }
+
+
 .center-wrapper {
     display: flex;
     justify-content: center;
