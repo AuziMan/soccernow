@@ -1,1 +1,12 @@
-# SoccerNow - Your place for quick soccer information
+# SoccerNow - Your place for accurtate soccer information
+
+## The 'goal' (haha get it?) of SoccerNow is to provide simple, accurare soccer information from a variaty of leagues. 
+
+## Whether its:
+- game times
+- game scores
+- team squads
+- game officials
+- league standings
+
+## Soccer now has you covered
