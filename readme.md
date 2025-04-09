@@ -33,6 +33,14 @@
 - referee changes
 - time changes
 
+#### By making one call each day, I am able to display the upcoming games *in the useres current timezone* (timezone conversion logic I developed) and also update the results of the games that have already occured.
+
+#### A marjor update I would like to implement is 'live updates'
+
+#### I can do this by making 4 calls per game to check for any updates such as goals, substitutions, etc
+
+#### Unfortunatly this would not be as live as I would like, a user would be able to track the progress of a game in a delayed fashion. 
+
 
 #### After making a successful call to the public API and retrieveing all upcoming games for the current leages, I perform schema validation to ensure all fields I intend to use on the frontend are present and in the corrent format. 
 
