@@ -39,7 +39,7 @@
 
 #### I can do this by making 4 calls per game to check for any updates such as goals, substitutions, etc
 
-#### Unfortunatly this would not be as live as I would like, a user would be able to track the progress of a game in a delayed fashion. 
+#### Unfortunatly this would not be as live as I would like, but a user would be able to track the progress of a game in a delayed fashion. 
 
 
 #### After making a successful call to the public API and retrieveing all upcoming games for the current leages, I perform schema validation to ensure all fields I intend to use on the frontend are present and in the corrent format. 
