@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.9">
+  <diagram name="Page-1" id="FdIScvT4ngtyduPdUgNt">
+    <mxGraphModel dx="1428" dy="741" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TXvkJK4Qm-Coxr_GTVzE-1" value="Public Soccer API" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="6" y="288" width="154" height="91" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="mpLmkhT98b3r8zRySXLS-1" target="mpLmkhT98b3r8zRySXLS-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-1" value="&lt;b&gt;games collection&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="346" y="197" width="96" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-9" value="MongoDB Databases" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="322" y="326" width="132" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="mpLmkhT98b3r8zRySXLS-10" target="mpLmkhT98b3r8zRySXLS-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="442" y="447" />
+              <mxPoint x="609" y="447" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-10" value="&lt;b&gt;teams collection&lt;/b&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="346" y="396" width="96" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.55;exitY=0.95;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=52.5;entryPerimeter=0;" edge="1" parent="1" source="TXvkJK4Qm-Coxr_GTVzE-1" target="mpLmkhT98b3r8zRySXLS-10">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="88" y="375" />
+              <mxPoint x="88" y="449" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-11" value="flask server - ingestion&lt;br&gt;(ingest_teams.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="160" y="411" width="128" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-17" value="&lt;b&gt;one call per day, two weeks out to&amp;nbsp;&lt;/b&gt;&lt;div&gt;&lt;b&gt;collect/update game info&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=light-dark(#ede8e8, #ededed);" vertex="1" parent="1">
+          <mxGeometry x="116.5" y="149" width="215" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-19" value="&lt;b&gt;one call per week to collect/update&lt;/b&gt;&lt;div&gt;&lt;b&gt;team info&lt;/b&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=light-dark(#ede8e8, #ededed);" vertex="1" parent="1">
+          <mxGeometry x="116" y="491" width="216" height="41" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-20" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="472" y="564" as="sourcePoint" />
+            <mxPoint x="469" y="128" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-21" value="&lt;font style=&quot;font-size: 28px;&quot;&gt;Ingestion&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="236" y="68" width="132" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-24" value="&lt;font style=&quot;font-size: 28px;&quot;&gt;Client&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="573" y="68" width="90" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-26" value="Frontend&amp;nbsp;&lt;div&gt;(react)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="724" y="299" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="mpLmkhT98b3r8zRySXLS-27" target="mpLmkhT98b3r8zRySXLS-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-27" value="flask server -&lt;div&gt;&amp;nbsp;client endpoints&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="549" y="309" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-30" value="&lt;b&gt;endpoints for games&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="479.5" y="197" width="136" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-31" value="&lt;b&gt;endpoints for teams&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="477" y="457" width="133" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.625;exitY=0.2;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TXvkJK4Qm-Coxr_GTVzE-1" target="mpLmkhT98b3r8zRySXLS-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="102" y="237" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mpLmkhT98b3r8zRySXLS-5" value="flask server - ingestion&lt;br&gt;(ingest_games.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="160" y="204" width="128" height="66" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

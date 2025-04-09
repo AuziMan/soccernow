@@ -14,5 +14,11 @@
 
 ---
 
+## Here is a diagram outlining the backend functionality of SoccerNow, starting from left to right.
+
+---
+![past-games](/readme-imgs/design-diagram.png)
+
+---
 
 ![past-games](/readme-imgs/past-games.png)
