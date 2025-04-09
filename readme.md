@@ -34,6 +34,11 @@
 - time changes
 
 
+#### After making a successful call to the public API and having all games for the current leages, I perform schema validation to ensure all fields I intend to use on the frontend are present and in the corrent format. 
+
+#### A similar process is used for 'teams' ingestion. Each week, I make a call to the public API and retrieve each team from each league, and perform updates to the 'teams' collection (if any)
+
+
 
 
 
