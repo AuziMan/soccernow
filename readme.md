@@ -57,4 +57,3 @@
 
 ### Team Squads page:
 
-![team-squads](/readme-imgs/team-squads.jpeg)
