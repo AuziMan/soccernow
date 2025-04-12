@@ -56,4 +56,5 @@
 ![past-games](/readme-imgs/past-games.png)
 
 ### Team Squads page:
+![team-squads](/readme-imgs/team-squads.png)
 
