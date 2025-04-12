@@ -51,11 +51,10 @@
 ## Below are some screenshots from the frontend:
 
 
-
 ### Past Games:
 
 ![past-games](/readme-imgs/past-games.png)
 
 ### Team Squads page:
 
-![team-squads](/readme-imgs/team-squads.png)
+![team-squads](/readme-imgs/team-squads.jpeg)
