@@ -61,9 +61,10 @@ function TeamSquads() {
                                     alt={`${player.name} logo`}
                                     className="player-img"
                                 />
-                                <h4>{player.name}</h4>
-                                <p>Position: {player.position}</p>
-                                <p>Number: {player.number ? player.number : 'N/A'}</p>
+                                <p></p>
+                                <h3>{player.name}</h3>
+                                <h3>{player.position}</h3>
+                                <h3>#{player.number ? player.number : 'N/A'}</h3>
                             </div>
                         ))}
                     </div>
